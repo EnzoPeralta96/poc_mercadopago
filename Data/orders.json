@@ -1,0 +1,262 @@
+[
+  {
+    "Id": "e8b812d69db44a3193d0642fb651f3f3",
+    "Title": "Orden e8b812d69db44a3193d0642fb651f3f3",
+    "Total": 6400,
+    "CurrencyId": "ARS",
+    "Status": 1,
+    "CreatedAt": "2026-01-02T19:54:05.5458072-03:00",
+    "Items": [
+      {
+        "ProductId": "P002",
+        "Title": "Destornillador Plano",
+        "Quantity": 2,
+        "UnitPrice": 3200,
+        "CurrencyId": "ARS",
+        "SubTotal": 6400
+      }
+    ],
+    "MercadoPagoPreferenceId": null,
+    "MercadoPagoPaymentId": null
+  },
+  {
+    "Id": "138c26ac0a1d48caa3cb708f47e7573a",
+    "Title": "Orden 138c26ac0a1d48caa3cb708f47e7573a",
+    "Total": 6400,
+    "CurrencyId": "ARS",
+    "Status": 1,
+    "CreatedAt": "2026-01-02T19:54:19.0276719-03:00",
+    "Items": [
+      {
+        "ProductId": "P002",
+        "Title": "Destornillador Plano",
+        "Quantity": 2,
+        "UnitPrice": 3200,
+        "CurrencyId": "ARS",
+        "SubTotal": 6400
+      }
+    ],
+    "MercadoPagoPreferenceId": null,
+    "MercadoPagoPaymentId": null
+  },
+  {
+    "Id": "8f807beefd154b14a105af90644e8baf",
+    "Title": "Orden 8f807beefd154b14a105af90644e8baf",
+    "Total": 6400,
+    "CurrencyId": "ARS",
+    "Status": 1,
+    "CreatedAt": "2026-01-02T19:56:10.2607439-03:00",
+    "Items": [
+      {
+        "ProductId": "P002",
+        "Title": "Destornillador Plano",
+        "Quantity": 2,
+        "UnitPrice": 3200,
+        "CurrencyId": "ARS",
+        "SubTotal": 6400
+      }
+    ],
+    "MercadoPagoPreferenceId": null,
+    "MercadoPagoPaymentId": null
+  },
+  {
+    "Id": "0ad46c59dc2542f0a2f563f745681355",
+    "Title": "Orden 0ad46c59dc2542f0a2f563f745681355",
+    "Total": 9600,
+    "CurrencyId": "ARS",
+    "Status": 1,
+    "CreatedAt": "2026-01-02T19:56:35.0599908-03:00",
+    "Items": [
+      {
+        "ProductId": "P002",
+        "Title": "Destornillador Plano",
+        "Quantity": 3,
+        "UnitPrice": 3200,
+        "CurrencyId": "ARS",
+        "SubTotal": 9600
+      }
+    ],
+    "MercadoPagoPreferenceId": "3068452461-f568a2ff-af07-4990-8df1-56dfe594de2c",
+    "MercadoPagoPaymentId": null
+  },
+  {
+    "Id": "33ec95ddea8941b88ed424ec7e17deb7",
+    "Title": "Orden 33ec95ddea8941b88ed424ec7e17deb7",
+    "Total": 9600,
+    "CurrencyId": "ARS",
+    "Status": 1,
+    "CreatedAt": "2026-01-02T19:57:55.0778938-03:00",
+    "Items": [
+      {
+        "ProductId": "P002",
+        "Title": "Destornillador Plano",
+        "Quantity": 3,
+        "UnitPrice": 3200,
+        "CurrencyId": "ARS",
+        "SubTotal": 9600
+      }
+    ],
+    "MercadoPagoPreferenceId": "3068452461-a6cb6c40-ace0-45c3-b999-5308715ba4ba",
+    "MercadoPagoPaymentId": null
+  },
+  {
+    "Id": "0a32b8a5481544578bdaa176091b6dcd",
+    "Title": "Orden 0a32b8a5481544578bdaa176091b6dcd",
+    "Total": 6400,
+    "CurrencyId": "ARS",
+    "Status": 1,
+    "CreatedAt": "2026-01-02T20:00:42.9221045-03:00",
+    "Items": [
+      {
+        "ProductId": "P002",
+        "Title": "Destornillador Plano",
+        "Quantity": 2,
+        "UnitPrice": 3200,
+        "CurrencyId": "ARS",
+        "SubTotal": 6400
+      }
+    ],
+    "MercadoPagoPreferenceId": "3068452461-78d8b989-66d7-4986-b593-e96c06d91411",
+    "MercadoPagoPaymentId": null
+  },
+  {
+    "Id": "ea4f9ddb5c9d463aa06a65040d232ab9",
+    "Title": "Orden ea4f9ddb5c9d463aa06a65040d232ab9",
+    "Total": 7000,
+    "CurrencyId": "ARS",
+    "Status": 1,
+    "CreatedAt": "2026-01-02T20:12:21.8157134-03:00",
+    "Items": [
+      {
+        "ProductId": "P003",
+        "Title": "Destornillador Phillips",
+        "Quantity": 2,
+        "UnitPrice": 3500,
+        "CurrencyId": "ARS",
+        "SubTotal": 7000
+      }
+    ],
+    "MercadoPagoPreferenceId": "3068452461-cd45ff03-921a-4b8b-8b0b-ce64cd22bd74",
+    "MercadoPagoPaymentId": null
+  },
+  {
+    "Id": "b57dc873815c473dae455fd84f623b32",
+    "Title": "Orden b57dc873815c473dae455fd84f623b32",
+    "Total": 3200,
+    "CurrencyId": "ARS",
+    "Status": 1,
+    "CreatedAt": "2026-01-02T20:13:30.3579045-03:00",
+    "Items": [
+      {
+        "ProductId": "P002",
+        "Title": "Destornillador Plano",
+        "Quantity": 1,
+        "UnitPrice": 3200,
+        "CurrencyId": "ARS",
+        "SubTotal": 3200
+      }
+    ],
+    "MercadoPagoPreferenceId": "3068452461-4042eda4-ffb6-4848-867a-2f4f9d0ca3dc",
+    "MercadoPagoPaymentId": null
+  },
+  {
+    "Id": "83f53b7a6e664b68bdc8bd1e5ccc9d32",
+    "Title": "Orden 83f53b7a6e664b68bdc8bd1e5ccc9d32",
+    "Total": 6400,
+    "CurrencyId": "ARS",
+    "Status": 2,
+    "CreatedAt": "2026-01-02T20:24:40.2566634-03:00",
+    "Items": [
+      {
+        "ProductId": "P002",
+        "Title": "Destornillador Plano",
+        "Quantity": 2,
+        "UnitPrice": 3200,
+        "CurrencyId": "ARS",
+        "SubTotal": 6400
+      }
+    ],
+    "MercadoPagoPreferenceId": "3068452461-efb0955c-5830-41eb-ab07-a87392250e80",
+    "MercadoPagoPaymentId": null
+  },
+  {
+    "Id": "31a18f5093bc4a81afccdf4ad103260a",
+    "Title": "Orden 31a18f5093bc4a81afccdf4ad103260a",
+    "Total": 49500,
+    "CurrencyId": "ARS",
+    "Status": 1,
+    "CreatedAt": "2026-01-02T20:41:41.1515798-03:00",
+    "Items": [
+      {
+        "ProductId": "P018",
+        "Title": "Pistola de Calor",
+        "Quantity": 1,
+        "UnitPrice": 49500,
+        "CurrencyId": "ARS",
+        "SubTotal": 49500
+      }
+    ],
+    "MercadoPagoPreferenceId": "3068452461-7bd72b7d-6ff0-4a6e-ab2e-3b5cd834f102",
+    "MercadoPagoPaymentId": null
+  },
+  {
+    "Id": "342fe93f9f7e4542ad68d8d18824ae40",
+    "Title": "Orden 342fe93f9f7e4542ad68d8d18824ae40",
+    "Total": 22400,
+    "CurrencyId": "ARS",
+    "Status": 1,
+    "CreatedAt": "2026-01-02T20:42:15.4223816-03:00",
+    "Items": [
+      {
+        "ProductId": "P016",
+        "Title": "Extensi\u00F3n El\u00E9ctrica 10m",
+        "Quantity": 2,
+        "UnitPrice": 11200,
+        "CurrencyId": "ARS",
+        "SubTotal": 22400
+      }
+    ],
+    "MercadoPagoPreferenceId": "3068452461-09c7c066-5883-4146-9e10-51d52c38d56c",
+    "MercadoPagoPaymentId": null
+  },
+  {
+    "Id": "0dd283c4619c43009cbf0b3a8f7fd418",
+    "Title": "Orden 0dd283c4619c43009cbf0b3a8f7fd418",
+    "Total": 26500,
+    "CurrencyId": "ARS",
+    "Status": 1,
+    "CreatedAt": "2026-01-02T20:43:55.1905407-03:00",
+    "Items": [
+      {
+        "ProductId": "P006",
+        "Title": "Juego de Llaves Combinadas",
+        "Quantity": 1,
+        "UnitPrice": 26500,
+        "CurrencyId": "ARS",
+        "SubTotal": 26500
+      }
+    ],
+    "MercadoPagoPreferenceId": "3068452461-840f6436-677a-4d5b-acd6-7bcdf05513ad",
+    "MercadoPagoPaymentId": null
+  },
+  {
+    "Id": "2688cef507b74d1fb96742e72fc93e4a",
+    "Title": "Orden 2688cef507b74d1fb96742e72fc93e4a",
+    "Total": 26500,
+    "CurrencyId": "ARS",
+    "Status": 2,
+    "CreatedAt": "2026-01-02T20:46:01.6018284-03:00",
+    "Items": [
+      {
+        "ProductId": "P006",
+        "Title": "Juego de Llaves Combinadas",
+        "Quantity": 1,
+        "UnitPrice": 26500,
+        "CurrencyId": "ARS",
+        "SubTotal": 26500
+      }
+    ],
+    "MercadoPagoPreferenceId": "3068452461-95cfd46e-50e4-4f47-8f8d-c51b9d715eff",
+    "MercadoPagoPaymentId": 140454850754
+  }
+]

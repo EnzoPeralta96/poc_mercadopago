@@ -1,0 +1,52 @@
+﻿@using poc_mercadopago.Presentation.ViewModels
+@model HomeIndexViewModel
+@{
+    ViewData["Title"] = "Catalogo de Productos";
+}
+
+<h1>Catalogo de productos</h1>
+
+@if (Model?.Products == null || Model.Products.Count == 0)
+{
+    <p>No hay productos para mostrar.</p>
+}
+else
+{
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+        @foreach (ProductListItemViewModel p in Model.Products)
+        {
+            <div class="col">
+                <div class="card h-100">
+
+                    <div class="card-body">
+                        <h5 class="card-title">@p.Name</h5>
+
+                        @if (!string.IsNullOrWhiteSpace(p.Description))
+                        {
+                            <p class="card-text text-muted">@p.Description</p>
+                        }
+
+                        <p class="card-text">
+                            <strong class="fs-4 text-primary">$@p.Price.ToString("N2")</strong>
+                            <span class="text-muted">@p.CurrencyId</span>
+                        </p>
+                    </div>
+
+                    <div class="card-footer bg-white">
+                        <div class="d-flex gap-2">
+                            <input type="number" id="quantity-@p.Id" class="form-control form-control-sm" value="1" min="1"
+                                style="width:80px;" />
+
+                            <button type="button" class="btn btn-primary btn-sm flex-grow-1"
+                                onclick="addToCart('@p.Id', document.getElementById('quantity-@p.Id').value)">
+                                <i class="bi bi-cart-plus"></i> Agregar al Carrito
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        }
+    </div>
+}
