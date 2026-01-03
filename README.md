@@ -1,6 +1,6 @@
 # POC Mercado Pago - E-commerce con Clean Architecture
 
-Prueba de concepto (POC) de integración con Mercado Pago Checkout Pro, implementando Clean Architecture en ASP.NET Core.
+Prueba de concepto (POC) de integración con Mercado Pago Checkout Pro.
 
 ## Descripción
 
@@ -9,7 +9,6 @@ Este proyecto es una aplicación web de e-commerce que integra el sistema de pag
 ## Tecnologías Utilizadas
 
 - **Framework:** ASP.NET Core 10.0
-- **Arquitectura:** Clean Architecture
 - **SDK de Pago:** Mercado Pago .NET SDK
 - **Almacenamiento:** JSON Files (para POC)
 - **Estado:** Session Storage (carrito de compras)
@@ -172,7 +171,6 @@ Más tarjetas de prueba en: [Tarjetas de prueba Mercado Pago](https://www.mercad
 ### 1. Catálogo de Productos
 - Visualización de productos disponibles
 - Agregar productos al carrito
-- Ver detalles del producto
 
 ### 2. Carrito de Compras
 - Agregar/eliminar productos
@@ -204,7 +202,7 @@ Más tarjetas de prueba en: [Tarjetas de prueba Mercado Pago](https://www.mercad
 4. Se genera una preferencia de pago en Mercado Pago
 5. El usuario es redirigido a Mercado Pago para completar el pago
 6. El usuario paga con su cuenta de prueba
-7. Mercado Pago redirige al usuario de vuelta a la aplicación (success/failure/pending)
+7. Mercado Pago redirige al usuario de vuelta a la aplicación 
 8. Mercado Pago envía un webhook con la notificación del pago
 9. El sistema actualiza el estado de la orden y guarda el payment ID
 10. El usuario ve el resultado del pago
@@ -277,10 +275,3 @@ Las siguientes URLs se configuran automáticamente al crear la preferencia:
 - Las credenciales están en `appsettings.json` solo para fines de demostración
 - En producción, usa variables de entorno o Azure Key Vault para secrets
 
-## Autor
-
-Desarrollado como prueba de concepto para aprendizaje de Clean Architecture e integración con Mercado Pago.
-
-## Licencia
-
-Este proyecto es de código abierto y está disponible para fines educativos.
