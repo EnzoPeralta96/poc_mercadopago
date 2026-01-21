@@ -1,0 +1,84 @@
+@using poc_mercadopago.Presentation.ViewModels.QrViewModels
+@model QrViewModel
+
+<div class="p-3" id="checkout-qr-content" data-order-id="@Model.OrderId">
+    <div class="text-center">
+        <!-- Icono de QR -->
+        <i class="bi bi-qr-code display-4 text-primary mb-3"></i>
+        
+        <h5 class="mb-3">Escanea el código QR</h5>
+        
+        <!-- Instrucciones -->
+        <p class="text-muted small mb-4">
+            Abre la aplicación de Mercado Pago en tu celular y escanea este código para pagar
+        </p>
+
+        <!-- Imagen QR -->
+        <div class="qr-code-container mb-4">
+            <img src="@Model.QrImageBase64" 
+                 alt="Código QR de pago" 
+                 class="img-fluid qr-code-image"
+                 style="max-width: 300px; border: 2px solid #ddd; border-radius: 8px; padding: 10px; background: white;" />
+        </div>
+
+        <!-- Total a pagar -->
+        <div class="alert alert-info mb-3">
+            <h4 class="mb-0">
+                <i class="bi bi-cash-stack"></i>
+                Total: $@Model.Total.ToString("N2") @Model.CurrencyId
+            </h4>
+        </div>
+
+        <!-- Estado de conexión SignalR -->
+        <div id="qr-connection-status" class="mb-3">
+            <div class="d-flex align-items-center justify-content-center">
+                <div class="spinner-border spinner-border-sm text-primary me-2" role="status">
+                    <span class="visually-hidden">Conectando...</span>
+                </div>
+                <small class="text-muted">Esperando pago...</small>
+            </div>
+        </div>
+
+        <!-- Información adicional -->
+        <div class="alert alert-light">
+            <small class="text-muted">
+                <i class="bi bi-info-circle"></i>
+                Una vez realizado el pago, te redirigiremos automáticamente
+            </small>
+        </div>
+
+        <!-- Botón de cancelar (opcional) -->
+        <button type="button" 
+                class="btn btn-outline-secondary btn-sm mt-3" 
+                onclick="cancelQrCheckout()">
+            <i class="bi bi-arrow-left"></i> Cancelar y volver al carrito
+        </button>
+
+        <!-- Debug info (solo en desarrollo) -->
+        @if (ViewContext.HttpContext.Request.Host.Host.Contains("localhost"))
+        {
+            <div class="mt-3">
+                <details>
+                    <summary class="text-muted small">Debug Info</summary>
+                    <pre class="text-start small">OrderId: @Model.OrderId InStoreOrderId: @Model.InStoreOrderId</pre>
+                </details>
+            </div>
+        }
+    </div>
+</div>
+
+@* Script de inicialización (se ejecuta después de cargar la vista) *@
+<script>
+    // Inicializar SignalR cuando la vista se carga
+    (function() {
+        var orderId = '@Model.OrderId';
+        console.log('Inicializando notificaciones QR para orden:', orderId);
+
+        // Llamar a la función global definida en qr-payment.js
+        if (typeof startQrPaymentNotificationClient === 'function') {
+            startQrPaymentNotificationClient(orderId);
+        } else {
+            console.error('qr-payment.js no está cargado');
+        }
+    })();
+</script>

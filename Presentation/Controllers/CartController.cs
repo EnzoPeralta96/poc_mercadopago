@@ -63,7 +63,6 @@ public class CartController : Controller
         {
             _logger.LogWarning("Validacion fallida al agregar al carrito");
             return PartialView("_CartError", new { Message = "Datos inválidos. Intenta nuevamente" });
-
         }
 
         var cart = await _cartStore.GetCartAsync();

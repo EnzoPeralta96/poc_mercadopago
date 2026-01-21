@@ -17,6 +17,7 @@ namespace poc_mercadopago.Models
         public List<OrderItem> Items {get; init;} = [];
         public string? MercadoPagoPreferenceId {get; set;}
         public long? MercadoPagoPaymentId {get; set;}
+        public string? MercadoPagoInStoreOrderId {get; set;}
     }
 
 }

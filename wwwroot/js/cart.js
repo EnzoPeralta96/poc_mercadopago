@@ -219,7 +219,7 @@ function proceedToCheckout() {
     }
 
     // Call checkout endpoint
-    fetch('/Checkout/checkout', {
+    fetch('/MercadoPago/checkout', {
         method: 'POST',
         body: formData
     })
@@ -346,4 +346,89 @@ function showToast(message, type = 'success') {
     toastElement.addEventListener('hidden.bs.toast', function () {
         toastElement.remove();
     });
+}
+
+// ============================================================
+// CHECKOUT CON QR DINÁMICO
+// ============================================================
+
+/**
+ * Inicia el proceso de checkout con QR Dinámico.
+ * Similar a proceedToCheckout() pero llama a /Cart/CheckoutQr
+ */
+function proceedToQr() {
+    // Mostrar loading state
+    const cartBody = document.getElementById('cart-offcanvas-body');
+    cartBody.innerHTML = `
+        <div class="text-center py-5">
+            <div class="spinner-border text-primary" role="status">
+                <span class="visually-hidden">Generando código QR...</span>
+            </div>
+            <p class="mt-3">Generando código QR...</p>
+        </div>
+    `;
+
+    // Get anti-forgery token
+    const token = document.querySelector('input[name="__RequestVerificationToken"]');
+    const formData = new FormData();
+    if (token) {
+        formData.append('__RequestVerificationToken', token.value);
+    }
+
+    // Call checkout QR endpoint
+    fetch('/MercadoPago/paymentQr', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Error al generar código QR');
+        }
+        return response.text();
+    })
+    .then(html => {
+        // Reemplazar contenido del offcanvas con la vista del QR
+        cartBody.innerHTML = html;
+
+        // IMPORTANTE: Los scripts dentro de innerHTML NO se ejecutan automáticamente
+        // Debemos inicializar SignalR manualmente extrayendo el orderId del HTML cargado
+        const qrContent = document.getElementById('checkout-qr-content');
+        if (qrContent) {
+            const orderId = qrContent.getAttribute('data-order-id');
+            if (orderId && typeof startQrPaymentNotificationClient === 'function') {
+                console.log('Inicializando SignalR para orden:', orderId);
+                startQrPaymentNotificationClient(orderId);
+            } else {
+                console.error('No se pudo inicializar SignalR: orderId o función no disponible');
+            }
+        }
+
+        console.log('Vista QR cargada exitosamente');
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        cartBody.innerHTML = `
+            <div class="text-center py-5">
+                <i class="bi bi-exclamation-triangle display-1 text-danger"></i>
+                <h4 class="mt-3 text-danger">Error</h4>
+                <p class="text-muted">No se pudo generar el código QR. Intenta nuevamente.</p>
+                <button type="button" class="btn btn-primary mt-3" onclick="loadCartContent()">
+                    <i class="bi bi-arrow-left"></i> Volver al Carrito
+                </button>
+            </div>
+        `;
+    });
+}
+
+/**
+ * Cancela el checkout QR y vuelve al carrito.
+ */
+function cancelQrCheckout() {
+    // Limpiar SignalR si está activo
+    if (typeof cleanupQrPaymentNotification === 'function') {
+        cleanupQrPaymentNotification();
+    }
+    
+    // Recargar contenido del carrito
+    loadCartContent();
 }

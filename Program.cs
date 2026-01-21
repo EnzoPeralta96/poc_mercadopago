@@ -1,8 +1,12 @@
-using MercadoPago.Config;
 using poc_mercadopago.Application.Services.PaymentService;
 using poc_mercadopago.Infrastructure.Cart.CartStore;
 using poc_mercadopago.Infrastructure.Configuration;
-using poc_mercadopago.Infrastructure.Gateways.MercadoPago;
+using poc_mercadopago.Infrastructure.Gateways.MercadoPago.Configuration;
+using poc_mercadopago.Infrastructure.Gateways.MercadoPago.MercadoPagoGateway;
+using poc_mercadopago.Infrastructure.Gateways.MercadoPago.MercadoPagoQRGateway;
+using poc_mercadopago.Infrastructure.QRCode;
+using poc_mercadopago.Infrastructure.SignalR.Hub;
+using poc_mercadopago.Infrastructure.SignalR.NotificationService;
 using poc_mercadopago.Repository.OrderRepository;
 using poc_mercadopago.Repository.ProductRepository;
 
@@ -23,6 +27,11 @@ builder.Services.AddHttpContextAccessor();
 //Session config
 builder.Services.AddDistributedMemoryCache();
 
+//HttpClient Factory para el gateway
+builder.Services.AddHttpClient();
+
+builder.Services.AddSignalR();
+
 builder.Services.AddSession(options =>
 {
     options.IdleTimeout = TimeSpan.FromMinutes(30);
@@ -40,6 +49,7 @@ builder.Services.AddScoped<IOrderRepository, JsonOrderRepository>();
 
 //Servicios
 builder.Services.AddScoped<IPaymentService, PaymentService>();
+builder.Services.AddScoped<IPaymentNotificationService, PaymentNotificationService>();
 
 
 //Configuracion de mercadopago
@@ -54,8 +64,24 @@ builder.Services.AddOptions<MercadoPagoOptions>()
     .ValidateDataAnnotations()
     .ValidateOnStart();
 
+//Configuracion de mercadopago QR
+//Registrar la configuracion de mercado pago QR
+builder.Services.Configure<MercadoPagoQrOptions>(
+    builder.Configuration.GetSection(MercadoPagoQrOptions.SectionName)
+);
+
+//Validar la configuracion de mercado pago QR al inicio de la aplicacion
+builder.Services.AddOptions<MercadoPagoQrOptions>()
+    .BindConfiguration(MercadoPagoQrOptions.SectionName)
+    .ValidateDataAnnotations()
+    .ValidateOnStart();
+
 //Mercadopago Gateway
 builder.Services.AddScoped<IMercadoPagoGateway, MercadoPagoGateway>();
+builder.Services.AddScoped<IMercadoPagoQRGateway, MercadoPagoQRGateway>();
+
+//Generador de QR
+builder.Services.AddSingleton<IQrCodeGenerator, QrCodeGenerator>();
 
 
 var app = builder.Build();
@@ -79,6 +105,7 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}")
     .WithStaticAssets();
+app.MapHub<PaymentNotificationHub>("/hubs/payment-notification");
 
 
 app.Run();

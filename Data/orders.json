@@ -17,7 +17,8 @@
       }
     ],
     "MercadoPagoPreferenceId": null,
-    "MercadoPagoPaymentId": null
+    "MercadoPagoPaymentId": null,
+    "MercadoPagoInStoreOrderId": null
   },
   {
     "Id": "138c26ac0a1d48caa3cb708f47e7573a",
@@ -37,7 +38,8 @@
       }
     ],
     "MercadoPagoPreferenceId": null,
-    "MercadoPagoPaymentId": null
+    "MercadoPagoPaymentId": null,
+    "MercadoPagoInStoreOrderId": null
   },
   {
     "Id": "8f807beefd154b14a105af90644e8baf",
@@ -57,7 +59,8 @@
       }
     ],
     "MercadoPagoPreferenceId": null,
-    "MercadoPagoPaymentId": null
+    "MercadoPagoPaymentId": null,
+    "MercadoPagoInStoreOrderId": null
   },
   {
     "Id": "0ad46c59dc2542f0a2f563f745681355",
@@ -77,7 +80,8 @@
       }
     ],
     "MercadoPagoPreferenceId": "3068452461-f568a2ff-af07-4990-8df1-56dfe594de2c",
-    "MercadoPagoPaymentId": null
+    "MercadoPagoPaymentId": null,
+    "MercadoPagoInStoreOrderId": null
   },
   {
     "Id": "33ec95ddea8941b88ed424ec7e17deb7",
@@ -97,7 +101,8 @@
       }
     ],
     "MercadoPagoPreferenceId": "3068452461-a6cb6c40-ace0-45c3-b999-5308715ba4ba",
-    "MercadoPagoPaymentId": null
+    "MercadoPagoPaymentId": null,
+    "MercadoPagoInStoreOrderId": null
   },
   {
     "Id": "0a32b8a5481544578bdaa176091b6dcd",
@@ -117,7 +122,8 @@
       }
     ],
     "MercadoPagoPreferenceId": "3068452461-78d8b989-66d7-4986-b593-e96c06d91411",
-    "MercadoPagoPaymentId": null
+    "MercadoPagoPaymentId": null,
+    "MercadoPagoInStoreOrderId": null
   },
   {
     "Id": "ea4f9ddb5c9d463aa06a65040d232ab9",
@@ -137,7 +143,8 @@
       }
     ],
     "MercadoPagoPreferenceId": "3068452461-cd45ff03-921a-4b8b-8b0b-ce64cd22bd74",
-    "MercadoPagoPaymentId": null
+    "MercadoPagoPaymentId": null,
+    "MercadoPagoInStoreOrderId": null
   },
   {
     "Id": "b57dc873815c473dae455fd84f623b32",
@@ -157,7 +164,8 @@
       }
     ],
     "MercadoPagoPreferenceId": "3068452461-4042eda4-ffb6-4848-867a-2f4f9d0ca3dc",
-    "MercadoPagoPaymentId": null
+    "MercadoPagoPaymentId": null,
+    "MercadoPagoInStoreOrderId": null
   },
   {
     "Id": "83f53b7a6e664b68bdc8bd1e5ccc9d32",
@@ -177,7 +185,8 @@
       }
     ],
     "MercadoPagoPreferenceId": "3068452461-efb0955c-5830-41eb-ab07-a87392250e80",
-    "MercadoPagoPaymentId": null
+    "MercadoPagoPaymentId": null,
+    "MercadoPagoInStoreOrderId": null
   },
   {
     "Id": "31a18f5093bc4a81afccdf4ad103260a",
@@ -197,7 +206,8 @@
       }
     ],
     "MercadoPagoPreferenceId": "3068452461-7bd72b7d-6ff0-4a6e-ab2e-3b5cd834f102",
-    "MercadoPagoPaymentId": null
+    "MercadoPagoPaymentId": null,
+    "MercadoPagoInStoreOrderId": null
   },
   {
     "Id": "342fe93f9f7e4542ad68d8d18824ae40",
@@ -217,7 +227,8 @@
       }
     ],
     "MercadoPagoPreferenceId": "3068452461-09c7c066-5883-4146-9e10-51d52c38d56c",
-    "MercadoPagoPaymentId": null
+    "MercadoPagoPaymentId": null,
+    "MercadoPagoInStoreOrderId": null
   },
   {
     "Id": "0dd283c4619c43009cbf0b3a8f7fd418",
@@ -237,7 +248,8 @@
       }
     ],
     "MercadoPagoPreferenceId": "3068452461-840f6436-677a-4d5b-acd6-7bcdf05513ad",
-    "MercadoPagoPaymentId": null
+    "MercadoPagoPaymentId": null,
+    "MercadoPagoInStoreOrderId": null
   },
   {
     "Id": "2688cef507b74d1fb96742e72fc93e4a",
@@ -257,6 +269,427 @@
       }
     ],
     "MercadoPagoPreferenceId": "3068452461-95cfd46e-50e4-4f47-8f8d-c51b9d715eff",
-    "MercadoPagoPaymentId": 140454850754
+    "MercadoPagoPaymentId": 140454850754,
+    "MercadoPagoInStoreOrderId": null
+  },
+  {
+    "Id": "81d918a4100b467b9c9dec52703b8868",
+    "Title": "Orden 81d918a4100b467b9c9dec52703b8868",
+    "Total": 78000,
+    "CurrencyId": "ARS",
+    "Status": 1,
+    "CreatedAt": "2026-01-03T00:05:25.0886294-03:00",
+    "Items": [
+      {
+        "ProductId": "P005",
+        "Title": "Amoladora Angular",
+        "Quantity": 1,
+        "UnitPrice": 78000,
+        "CurrencyId": "ARS",
+        "SubTotal": 78000
+      }
+    ],
+    "MercadoPagoPreferenceId": "3068452461-9b5927e9-d7af-4e11-a48f-9a44bfbc414e",
+    "MercadoPagoPaymentId": null,
+    "MercadoPagoInStoreOrderId": null
+  },
+  {
+    "Id": "65a57d392e0741b0992243b76ea4ff05",
+    "Title": "Orden 65a57d392e0741b0992243b76ea4ff05",
+    "Total": 3200,
+    "CurrencyId": "ARS",
+    "Status": 1,
+    "CreatedAt": "2026-01-03T00:06:16.5120867-03:00",
+    "Items": [
+      {
+        "ProductId": "P002",
+        "Title": "Destornillador Plano",
+        "Quantity": 1,
+        "UnitPrice": 3200,
+        "CurrencyId": "ARS",
+        "SubTotal": 3200
+      }
+    ],
+    "MercadoPagoPreferenceId": "3068452461-2aa1f2ed-875f-44d9-bb95-874a3d16d28a",
+    "MercadoPagoPaymentId": null,
+    "MercadoPagoInStoreOrderId": null
+  },
+  {
+    "Id": "d94335f330104332afc998b8a6db2816",
+    "Title": "Orden d94335f330104332afc998b8a6db2816",
+    "Total": 3200,
+    "CurrencyId": "ARS",
+    "Status": 1,
+    "CreatedAt": "2026-01-03T00:06:36.7074611-03:00",
+    "Items": [
+      {
+        "ProductId": "P002",
+        "Title": "Destornillador Plano",
+        "Quantity": 1,
+        "UnitPrice": 3200,
+        "CurrencyId": "ARS",
+        "SubTotal": 3200
+      }
+    ],
+    "MercadoPagoPreferenceId": "3068452461-eefd5748-ec27-49cb-8300-ff44d21639c7",
+    "MercadoPagoPaymentId": null,
+    "MercadoPagoInStoreOrderId": null
+  },
+  {
+    "Id": "f9d681c239f94a67abc249aaa7bde853",
+    "Title": "Orden f9d681c239f94a67abc249aaa7bde853",
+    "Total": 3200,
+    "CurrencyId": "ARS",
+    "Status": 1,
+    "CreatedAt": "2026-01-03T00:15:10.6282047-03:00",
+    "Items": [
+      {
+        "ProductId": "P002",
+        "Title": "Destornillador Plano",
+        "Quantity": 1,
+        "UnitPrice": 3200,
+        "CurrencyId": "ARS",
+        "SubTotal": 3200
+      }
+    ],
+    "MercadoPagoPreferenceId": "3068452461-edf6a134-ffcb-4815-bee1-35865fa2188d",
+    "MercadoPagoPaymentId": null,
+    "MercadoPagoInStoreOrderId": null
+  },
+  {
+    "Id": "345e6d6205704d8c80364c1d84a161df",
+    "Title": "Orden 345e6d6205704d8c80364c1d84a161df",
+    "Total": 3200,
+    "CurrencyId": "ARS",
+    "Status": 1,
+    "CreatedAt": "2026-01-03T00:15:41.7008803-03:00",
+    "Items": [
+      {
+        "ProductId": "P002",
+        "Title": "Destornillador Plano",
+        "Quantity": 1,
+        "UnitPrice": 3200,
+        "CurrencyId": "ARS",
+        "SubTotal": 3200
+      }
+    ],
+    "MercadoPagoPreferenceId": "3068452461-c009f04e-cc62-4aec-adb6-9763455c187f",
+    "MercadoPagoPaymentId": null,
+    "MercadoPagoInStoreOrderId": null
+  },
+  {
+    "Id": "e6a0c5ab2c054f95b55870a88407012c",
+    "Title": "Orden e6a0c5ab2c054f95b55870a88407012c",
+    "Total": 3500,
+    "CurrencyId": "ARS",
+    "Status": 1,
+    "CreatedAt": "2026-01-03T00:22:29.2536032-03:00",
+    "Items": [
+      {
+        "ProductId": "P003",
+        "Title": "Destornillador Phillips",
+        "Quantity": 1,
+        "UnitPrice": 3500,
+        "CurrencyId": "ARS",
+        "SubTotal": 3500
+      }
+    ],
+    "MercadoPagoPreferenceId": "3068452461-1408e6c0-288b-413e-a224-27b258421a2e",
+    "MercadoPagoPaymentId": null,
+    "MercadoPagoInStoreOrderId": null
+  },
+  {
+    "Id": "de64da7ee81f4f1da9aace521b3b7c51",
+    "Title": "Orden de64da7ee81f4f1da9aace521b3b7c51",
+    "Total": 9600,
+    "CurrencyId": "ARS",
+    "Status": 1,
+    "CreatedAt": "2026-01-20T23:49:39.7281344-03:00",
+    "Items": [
+      {
+        "ProductId": "P002",
+        "Title": "Destornillador Plano",
+        "Quantity": 3,
+        "UnitPrice": 3200,
+        "CurrencyId": "ARS",
+        "SubTotal": 9600
+      }
+    ],
+    "MercadoPagoPreferenceId": null,
+    "MercadoPagoPaymentId": null,
+    "MercadoPagoInStoreOrderId": "ee682906-067c-479f-ac59-847a72befdba"
+  },
+  {
+    "Id": "b220e863f8ce44f28cc8c80f893e4eef",
+    "Title": "Orden b220e863f8ce44f28cc8c80f893e4eef",
+    "Total": 6400,
+    "CurrencyId": "ARS",
+    "Status": 1,
+    "CreatedAt": "2026-01-20T23:53:46.9158102-03:00",
+    "Items": [
+      {
+        "ProductId": "P002",
+        "Title": "Destornillador Plano",
+        "Quantity": 2,
+        "UnitPrice": 3200,
+        "CurrencyId": "ARS",
+        "SubTotal": 6400
+      }
+    ],
+    "MercadoPagoPreferenceId": null,
+    "MercadoPagoPaymentId": null,
+    "MercadoPagoInStoreOrderId": "f721ed9f-38a7-459c-9fda-3fd5eea85a56"
+  },
+  {
+    "Id": "16a830dbdbae4ffb80800595dec20770",
+    "Title": "Orden 16a830dbdbae4ffb80800595dec20770",
+    "Total": 6400,
+    "CurrencyId": "ARS",
+    "Status": 1,
+    "CreatedAt": "2026-01-21T00:00:57.7046509-03:00",
+    "Items": [
+      {
+        "ProductId": "P002",
+        "Title": "Destornillador Plano",
+        "Quantity": 2,
+        "UnitPrice": 3200,
+        "CurrencyId": "ARS",
+        "SubTotal": 6400
+      }
+    ],
+    "MercadoPagoPreferenceId": "3068452461-2f178425-872d-4a0f-b0b3-6683472ac941",
+    "MercadoPagoPaymentId": null,
+    "MercadoPagoInStoreOrderId": null
+  },
+  {
+    "Id": "2d5128c6f4a048fd9a7befb2521cff63",
+    "Title": "Orden 2d5128c6f4a048fd9a7befb2521cff63",
+    "Total": 3200,
+    "CurrencyId": "ARS",
+    "Status": 1,
+    "CreatedAt": "2026-01-21T00:01:04.9635877-03:00",
+    "Items": [
+      {
+        "ProductId": "P002",
+        "Title": "Destornillador Plano",
+        "Quantity": 1,
+        "UnitPrice": 3200,
+        "CurrencyId": "ARS",
+        "SubTotal": 3200
+      }
+    ],
+    "MercadoPagoPreferenceId": null,
+    "MercadoPagoPaymentId": null,
+    "MercadoPagoInStoreOrderId": "3dd0d683-e915-49ae-99f8-c1f4e8e08e80"
+  },
+  {
+    "Id": "3753b9fc01214f57ab6ca8ab0b3d6563",
+    "Title": "Orden 3753b9fc01214f57ab6ca8ab0b3d6563",
+    "Total": 6400,
+    "CurrencyId": "ARS",
+    "Status": 1,
+    "CreatedAt": "2026-01-21T00:04:41.8454631-03:00",
+    "Items": [
+      {
+        "ProductId": "P002",
+        "Title": "Destornillador Plano",
+        "Quantity": 2,
+        "UnitPrice": 3200,
+        "CurrencyId": "ARS",
+        "SubTotal": 6400
+      }
+    ],
+    "MercadoPagoPreferenceId": null,
+    "MercadoPagoPaymentId": null,
+    "MercadoPagoInStoreOrderId": "7f354dc6-7363-496c-a039-dc59d71dbbaf"
+  },
+  {
+    "Id": "9022fb780bbf4cd9a8e4f4724714bd02",
+    "Title": "Orden 9022fb780bbf4cd9a8e4f4724714bd02",
+    "Total": 7000,
+    "CurrencyId": "ARS",
+    "Status": 1,
+    "CreatedAt": "2026-01-21T00:06:50.6351219-03:00",
+    "Items": [
+      {
+        "ProductId": "P003",
+        "Title": "Destornillador Phillips",
+        "Quantity": 2,
+        "UnitPrice": 3500,
+        "CurrencyId": "ARS",
+        "SubTotal": 7000
+      }
+    ],
+    "MercadoPagoPreferenceId": null,
+    "MercadoPagoPaymentId": null,
+    "MercadoPagoInStoreOrderId": "3dcd08f6-512e-4818-a338-11762901e748"
+  },
+  {
+    "Id": "98fc3d1102c444669aa97efc5ea69683",
+    "Title": "Orden 98fc3d1102c444669aa97efc5ea69683",
+    "Total": 7000,
+    "CurrencyId": "ARS",
+    "Status": 1,
+    "CreatedAt": "2026-01-21T00:08:41.7555405-03:00",
+    "Items": [
+      {
+        "ProductId": "P003",
+        "Title": "Destornillador Phillips",
+        "Quantity": 2,
+        "UnitPrice": 3500,
+        "CurrencyId": "ARS",
+        "SubTotal": 7000
+      }
+    ],
+    "MercadoPagoPreferenceId": null,
+    "MercadoPagoPaymentId": null,
+    "MercadoPagoInStoreOrderId": "25d18625-9a51-462f-96e9-523a0ac9b824"
+  },
+  {
+    "Id": "a7e48f09ec6748c59e4c6b03a2c00edd",
+    "Title": "Orden a7e48f09ec6748c59e4c6b03a2c00edd",
+    "Total": 6400,
+    "CurrencyId": "ARS",
+    "Status": 1,
+    "CreatedAt": "2026-01-21T00:09:24.092298-03:00",
+    "Items": [
+      {
+        "ProductId": "P002",
+        "Title": "Destornillador Plano",
+        "Quantity": 2,
+        "UnitPrice": 3200,
+        "CurrencyId": "ARS",
+        "SubTotal": 6400
+      }
+    ],
+    "MercadoPagoPreferenceId": null,
+    "MercadoPagoPaymentId": null,
+    "MercadoPagoInStoreOrderId": "a990a2b2-b18d-4458-b865-2958bf7b5123"
+  },
+  {
+    "Id": "74a764fb167a430c9f113c629f47d0e8",
+    "Title": "Orden 74a764fb167a430c9f113c629f47d0e8",
+    "Total": 3200,
+    "CurrencyId": "ARS",
+    "Status": 1,
+    "CreatedAt": "2026-01-21T00:10:09.2300782-03:00",
+    "Items": [
+      {
+        "ProductId": "P002",
+        "Title": "Destornillador Plano",
+        "Quantity": 1,
+        "UnitPrice": 3200,
+        "CurrencyId": "ARS",
+        "SubTotal": 3200
+      }
+    ],
+    "MercadoPagoPreferenceId": null,
+    "MercadoPagoPaymentId": null,
+    "MercadoPagoInStoreOrderId": "f42cf5dd-da69-4171-9eb3-eb9a001d9688"
+  },
+  {
+    "Id": "23fb0b8f877940d1bbe6bbe3bb0a6b7a",
+    "Title": "Orden 23fb0b8f877940d1bbe6bbe3bb0a6b7a",
+    "Total": 3500,
+    "CurrencyId": "ARS",
+    "Status": 1,
+    "CreatedAt": "2026-01-21T00:24:31.242656-03:00",
+    "Items": [
+      {
+        "ProductId": "P003",
+        "Title": "Destornillador Phillips",
+        "Quantity": 1,
+        "UnitPrice": 3500,
+        "CurrencyId": "ARS",
+        "SubTotal": 3500
+      }
+    ],
+    "MercadoPagoPreferenceId": "3068452461-8cb5cf06-d25a-4fc2-891b-eba7321b1ed8",
+    "MercadoPagoPaymentId": null,
+    "MercadoPagoInStoreOrderId": null
+  },
+  {
+    "Id": "5812214836b84ceabc0ae96aecc48f2b",
+    "Title": "Orden 5812214836b84ceabc0ae96aecc48f2b",
+    "Total": 3200,
+    "CurrencyId": "ARS",
+    "Status": 1,
+    "CreatedAt": "2026-01-21T00:26:45.1885566-03:00",
+    "Items": [
+      {
+        "ProductId": "P002",
+        "Title": "Destornillador Plano",
+        "Quantity": 1,
+        "UnitPrice": 3200,
+        "CurrencyId": "ARS",
+        "SubTotal": 3200
+      }
+    ],
+    "MercadoPagoPreferenceId": "3068452461-18ecb006-f8f6-4d16-80b6-a3579685c932",
+    "MercadoPagoPaymentId": null,
+    "MercadoPagoInStoreOrderId": null
+  },
+  {
+    "Id": "df8cb13487be4fba86e8d54f72eccb0c",
+    "Title": "Orden df8cb13487be4fba86e8d54f72eccb0c",
+    "Total": 3500,
+    "CurrencyId": "ARS",
+    "Status": 2,
+    "CreatedAt": "2026-01-21T00:29:48.0199437-03:00",
+    "Items": [
+      {
+        "ProductId": "P003",
+        "Title": "Destornillador Phillips",
+        "Quantity": 1,
+        "UnitPrice": 3500,
+        "CurrencyId": "ARS",
+        "SubTotal": 3500
+      }
+    ],
+    "MercadoPagoPreferenceId": "3068452461-8e734ffa-e81a-4afd-a87a-d4bdd26fced1",
+    "MercadoPagoPaymentId": 142214855889,
+    "MercadoPagoInStoreOrderId": null
+  },
+  {
+    "Id": "84641f515c8a434585ce7152376eaca4",
+    "Title": "Orden 84641f515c8a434585ce7152376eaca4",
+    "Total": 3200,
+    "CurrencyId": "ARS",
+    "Status": 1,
+    "CreatedAt": "2026-01-21T00:31:57.1251368-03:00",
+    "Items": [
+      {
+        "ProductId": "P002",
+        "Title": "Destornillador Plano",
+        "Quantity": 1,
+        "UnitPrice": 3200,
+        "CurrencyId": "ARS",
+        "SubTotal": 3200
+      }
+    ],
+    "MercadoPagoPreferenceId": null,
+    "MercadoPagoPaymentId": null,
+    "MercadoPagoInStoreOrderId": "a5b6de03-6e35-4edc-b62f-e3cadb0595ff"
+  },
+  {
+    "Id": "12964f4ad1554e00892af35bd88f480f",
+    "Title": "Orden 12964f4ad1554e00892af35bd88f480f",
+    "Total": 3500,
+    "CurrencyId": "ARS",
+    "Status": 2,
+    "CreatedAt": "2026-01-21T00:32:33.7271445-03:00",
+    "Items": [
+      {
+        "ProductId": "P003",
+        "Title": "Destornillador Phillips",
+        "Quantity": 1,
+        "UnitPrice": 3500,
+        "CurrencyId": "ARS",
+        "SubTotal": 3500
+      }
+    ],
+    "MercadoPagoPreferenceId": "3068452461-b364d092-1101-4bec-97f2-8bf5cf546fe8",
+    "MercadoPagoPaymentId": 142215112445,
+    "MercadoPagoInStoreOrderId": null
   }
 ]

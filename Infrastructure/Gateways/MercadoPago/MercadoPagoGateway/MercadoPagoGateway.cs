@@ -1,17 +1,17 @@
 using MercadoPago.Client.Payment;
 using MercadoPago.Client.Preference;
 using MercadoPago.Config;
-using MercadoPago.Resource.Payment;
 using Microsoft.Extensions.Options;
 using poc_mercadopago.Infrastructure.Configuration;
 using poc_mercadopago.Infrastructure.Gateways.MercadoPago.DTO;
 
-namespace poc_mercadopago.Infrastructure.Gateways.MercadoPago
+namespace poc_mercadopago.Infrastructure.Gateways.MercadoPago.MercadoPagoGateway
 {
     public class MercadoPagoGateway : IMercadoPagoGateway
     {
         private readonly MercadoPagoOptions _mercadoPagoOptions;
         private readonly ILogger<MercadoPagoGateway> _logger;
+
         public MercadoPagoGateway(ILogger<MercadoPagoGateway> logger, IOptions<MercadoPagoOptions> options)
         {
             _logger = logger;
@@ -84,5 +84,6 @@ namespace poc_mercadopago.Infrastructure.Gateways.MercadoPago
                 throw;
             }
         }
+       
     }
 }

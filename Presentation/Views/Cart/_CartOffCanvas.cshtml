@@ -24,7 +24,8 @@
                         </div>
 
                         <div class="text-end">
-                            <button type="button" class="btn btn-sm btn-outline-danger mb-2" onclick="removeFromCart('@item.ProductId')">
+                            <button type="button" class="btn btn-sm btn-outline-danger mb-2"
+                                onclick="removeFromCart('@item.ProductId')">
                                 <i class="bi bi-trash"></i>
                             </button>
                             <div class="fw-bold">$@item.Subtotal.ToString("N2")</div>
@@ -33,12 +34,14 @@
 
                     <div class="mt-2">
                         <div class="input-group input-group-sm" style="max-width: 150px;">
-                            <button class="btn btn-outline-secondary" type="button" onclick="updateCartQuantity('@item.ProductId', @(item.Quantity - 1))">-</button>
+                            <button class="btn btn-outline-secondary" type="button"
+                                onclick="updateCartQuantity('@item.ProductId', @(item.Quantity - 1))">-</button>
                             <input type="number" class="form-control text-center" value="@item.Quantity" min="1" readonly>
-                            <button class="btn btn-outline-secondary" type="button" onclick="updateCartQuantity('@item.ProductId', @(item.Quantity + 1))">+</button>
+                            <button class="btn btn-outline-secondary" type="button"
+                                onclick="updateCartQuantity('@item.ProductId', @(item.Quantity + 1))">+</button>
                         </div>
                     </div>
-                    
+
                 </div>
             }
         </div>
@@ -53,14 +56,54 @@
                 <span class="fw-bold fs-5">$@Model.Total.ToString("N2")</span>
             </div>
 
+            <!--div class="d-grid gap-2">
+                    <button type="button" class="btn btn-primary btn-lg" onclick="proceedToCheckout()">
+                        Proceder al Pago
+                    </button>
+                    <button type="button" class="btn btn-outline-secondary btn-sm" onclick="clearCart()">
+                        Vaciar Carrito
+                    </button>
+                </div-->
+
+            @* BUSCA ESTA SECCIÓN EN EL ARCHIVO (alrededor de la línea 55-65) *@
+            @* REEMPLAZA EL BOTÓN SIMPLE POR ESTE DROPDOWN *@
+
             <div class="d-grid gap-2">
-                <button type="button" class="btn btn-primary btn-lg" onclick="proceedToCheckout()">
-                    Proceder al Pago
-                </button>
+                <!-- Dropdown para seleccionar método de pago -->
+                <div class="btn-group" role="group">
+                    <button type="button" class="btn btn-primary btn-lg dropdown-toggle" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        <i class="bi bi-credit-card"></i>
+                        Proceder al Pago
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end w-100">
+                        <li>
+                            <a class="dropdown-item" href="#" onclick="proceedToCheckout(); return false;">
+                                <i class="bi bi-wallet2 text-primary"></i>
+                                <strong>Mercado Pago Checkout</strong>
+                                <br>
+                                <small class="text-muted">Paga con tu cuenta de Mercado Pago</small>
+                            </a>
+                        </li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="#" onclick="proceedToQr(); return false;">
+                                <i class="bi bi-qr-code text-success"></i>
+                                <strong>Código QR</strong>
+                                <br>
+                                <small class="text-muted">Escanea con tu celular para pagar</small>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
                 <button type="button" class="btn btn-outline-secondary btn-sm" onclick="clearCart()">
                     Vaciar Carrito
                 </button>
             </div>
+
         </div>
     }
     else

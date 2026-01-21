@@ -275,3 +275,4 @@ Las siguientes URLs se configuran automáticamente al crear la preferencia:
 - Las credenciales están en `appsettings.json` solo para fines de demostración
 - En producción, usa variables de entorno o Azure Key Vault para secrets
 
+# Pensar como integrarlo.

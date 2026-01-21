@@ -1,9 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Policy;
-using System.Threading.Tasks;
-
 namespace poc_mercadopago.Application.DTOs.StartCheckoutDTO
 {
     public class PaymentResultDTO
