@@ -1,51 +1,98 @@
 # POC Mercado Pago - E-commerce con Clean Architecture
 
-Prueba de concepto (POC) de integración con Mercado Pago Checkout Pro.
+Prueba de concepto (POC) de integracion con Mercado Pago utilizando dos metodos de pago: **Checkout Pro** y **QR Dinamico**.
 
-## Descripción
+## Descripcion
 
-Este proyecto es una aplicación web de e-commerce que integra el sistema de pagos de Mercado Pago. Incluye un carrito de compras, procesamiento de pagos mediante Checkout Pro, y manejo de webhooks para actualizar el estado de las órdenes.
+Este proyecto es una aplicacion web de e-commerce que integra el sistema de pagos de Mercado Pago. Incluye:
 
-## Tecnologías Utilizadas
+- Catalogo de productos
+- Carrito de compras con persistencia en sesion
+- **Checkout Pro**: Redireccion al sitio de Mercado Pago
+- **Pago con QR Dinamico**: Codigo QR que el cliente escanea con la app de MP
+- Webhooks para actualizar el estado de las ordenes
+- **SignalR**: Notificaciones en tiempo real cuando se completa el pago QR
 
-- **Framework:** ASP.NET Core 10.0
-- **SDK de Pago:** Mercado Pago .NET SDK
-- **Almacenamiento:** JSON Files (para POC)
-- **Estado:** Session Storage (carrito de compras)
-- **Túnel:** ngrok (para webhooks en desarrollo)
+## Tecnologias Utilizadas
+
+| Componente | Tecnologia | Version |
+|------------|------------|---------|
+| Framework | ASP.NET Core | 10.0 |
+| SDK de Pago | Mercado Pago .NET SDK | 2.11.0 |
+| Tiempo Real | SignalR | Incluido en ASP.NET Core |
+| Generacion QR | QRCoder | Ultima version |
+| Almacenamiento | Archivos JSON | N/A |
+| Carrito | Session Storage | N/A |
+| Tunel desarrollo | ngrok | N/A |
 
 ## Arquitectura del Proyecto
 
 ```
 poc_mercadopago/
-├── Application/              # Lógica de negocio
-│   ├── DTOs/                # Data Transfer Objects
-│   └── Services/            # Servicios de aplicación
-│       └── PaymentService/  # Servicio de pagos
-├── Infrastructure/          # Implementaciones de infraestructura
-│   ├── Cart/               # Almacenamiento del carrito
-│   ├── Configuration/      # Configuraciones
-│   └── Gateways/           # Integraciones externas
-│       └── MercadoPago/    # Gateway de Mercado Pago
-├── Models/                 # Modelos de dominio
-│   ├── Order/             # Modelo de orden
-│   └── Product/           # Modelo de producto
-├── Presentation/          # Capa de presentación
-│   ├── Controllers/       # Controladores MVC
-│   ├── Views/            # Vistas Razor
-│   └── WebHooks/         # Controladores de webhooks
-└── Repository/           # Repositorios de datos
-    ├── OrderRepository/  # Repositorio de órdenes
-    └── ProductRepository/# Repositorio de productos
+├── Application/                    # Logica de negocio
+│   ├── DTOs/                       # Data Transfer Objects
+│   │   ├── StartCheckoutDTO/       # DTOs para Checkout Pro
+│   │   └── StartQrDTO/             # DTOs para QR Dinamico
+│   └── Services/
+│       └── PaymentService/         # Servicio de pagos
+│
+├── Infrastructure/                 # Implementaciones de infraestructura
+│   ├── Cart/                       # Almacenamiento del carrito
+│   ├── Gateways/
+│   │   └── MercadoPago/
+│   │       ├── Configuration/      # MercadoPagoOptions, MercadoPagoQrOptions
+│   │       ├── DTO/                # DTOs de comunicacion con MP
+│   │       ├── MercadoPagoGateway/ # Gateway Checkout Pro
+│   │       └── MercadoPagoQRGateway/ # Gateway QR Dinamico
+│   ├── QRCode/                     # Generador de imagenes QR
+│   ├── Session/                    # Extensiones de sesion
+│   └── SignalR/                    # Notificaciones tiempo real
+│       ├── Hub/                    # PaymentNotificationHub
+│       └── NotificationService/    # Servicio de notificaciones
+│
+├── Models/                         # Modelos de dominio
+│   ├── Order/                      # Order, OrderItem, OrderStatus
+│   └── Product.cs
+│
+├── Presentation/                   # Capa de presentacion
+│   ├── Controllers/                # HomeController, CartController, etc.
+│   ├── Views/                      # Vistas Razor
+│   └── WebHooks/                   # Controladores de webhooks
+│
+├── Repository/                     # Repositorios de datos
+│   ├── OrderRepository/
+│   └── ProductRepository/
+│
+├── Data/                           # Archivos JSON de datos
+├── wwwroot/                        # Archivos estaticos (JS, CSS)
+│   └── js/
+│       ├── cart.js                 # Logica del carrito
+│       └── qr-payment.js           # Cliente SignalR
+│
+└── doc/                            # Documentacion
+    ├── integracion-checkoutPro.md  # Documentacion Checkout Pro
+    ├── integracion-pagoQr.md       # Documentacion QR Dinamico
+    ├── implementacion.md           # Documentacion tecnica completa
+    └── guia-usuario.md             # Guia para usuarios no tecnicos
 ```
+
+## Documentacion
+
+| Documento | Descripcion |
+|-----------|-------------|
+| [integracion-checkoutPro.md](doc/integracion-checkoutPro.md) | Detalles de la integracion con Checkout Pro |
+| [integracion-pagoQr.md](doc/integracion-pagoQr.md) | Detalles de la integracion con QR Dinamico |
+| [implementacion.md](doc/implementacion.md) | Documentacion tecnica completa de toda la POC |
+| [guia-usuario.md](doc/guia-usuario.md) | Guia de alto nivel para usuarios no tecnicos |
 
 ## Requisitos Previos
 
 - [.NET 10.0 SDK](https://dotnet.microsoft.com/download)
 - [ngrok](https://ngrok.com/download) (para recibir webhooks)
 - Cuenta de Mercado Pago (modo prueba)
+- Test Users de Mercado Pago (para QR Dinamico)
 
-## Configuración
+## Configuracion
 
 ### 1. Clonar el Repositorio
 
@@ -56,7 +103,7 @@ cd poc_mercadopago
 
 ### 2. Configurar Mercado Pago
 
-Edita el archivo `appsettings.json` y reemplaza con tus credenciales de Mercado Pago:
+Edita el archivo `appsettings.json`:
 
 ```json
 {
@@ -64,68 +111,59 @@ Edita el archivo `appsettings.json` y reemplaza con tus credenciales de Mercado 
     "AccessToken": "TU_ACCESS_TOKEN",
     "PublicKey": "TU_PUBLIC_KEY",
     "BaseUrl": "TU_URL_DE_NGROK"
+  },
+  "MercadoPagoQr": {
+    "AccessToken": "TOKEN_DEL_VENDEDOR_TEST",
+    "PublicKey": "PUBLIC_KEY_DEL_VENDEDOR",
+    "UserId": "ID_DEL_USUARIO_VENDEDOR",
+    "ExternalPosId": "ID_DE_LA_CAJA",
+    "BaseUrl": "TU_URL_DE_NGROK"
   }
 }
 ```
 
-**Nota:** Nunca subas el archivo `appsettings.json` con credenciales reales al repositorio. Está incluido aquí solo para fines de POC.
+**Nota:** Nunca subas el archivo `appsettings.json` con credenciales reales al repositorio.
 
-### 3. Configurar ngrok
+### 3. Configuracion adicional para QR Dinamico
 
-ngrok es necesario para que Mercado Pago pueda enviar webhooks a tu aplicación local.
+Para usar el pago con QR necesitas:
 
-#### Instalación de ngrok
+1. **Crear Test Users** en [Panel de Mercado Pago](https://www.mercadopago.com.ar/developers/panel/test-users)
+   - Un usuario Vendedor
+   - Un usuario Comprador
 
-1. Descarga ngrok desde [https://ngrok.com/download](https://ngrok.com/download)
-2. Extrae el ejecutable en una carpeta de tu preferencia
-3. (Opcional) Crea una cuenta gratuita en ngrok para obtener un authtoken
-
-#### Ejecutar ngrok
-
-Primero, ejecuta tu aplicación .NET para saber en qué puerto está corriendo (generalmente 5000 o 5001).
+2. **Crear Sucursal y Caja** usando la API de MP:
 
 ```bash
-dotnet run
+# Crear sucursal
+curl -X POST https://api.mercadopago.com/users/{user_id}/stores \
+  -H "Authorization: Bearer {access_token}" \
+  -d '{"name": "Mi Sucursal", "external_id": "SUC001"}'
+
+# Crear caja
+curl -X POST https://api.mercadopago.com/pos \
+  -H "Authorization: Bearer {access_token}" \
+  -d '{"name": "Caja 1", "external_store_id": "SUC001", "external_id": "SUC001POS001"}'
 ```
 
-En otra terminal, ejecuta ngrok:
+3. Usar el `external_id` de la caja como `ExternalPosId` en `appsettings.json`
+
+### 4. Configurar ngrok
 
 ```bash
+# Ejecutar ngrok
 ngrok http https://localhost:5001
 ```
 
-O si tu aplicación corre en HTTP:
+Copia la URL publica y actualiza `BaseUrl` en `appsettings.json`.
 
-```bash
-ngrok http http://localhost:5000
-```
-
-ngrok te dará una URL pública como:
-```
-Forwarding  https://xxxx-xx-xx-xxx-xxx.ngrok-free.app -> https://localhost:5001
-```
-
-#### Actualizar BaseUrl en appsettings.json
-
-Copia la URL de ngrok (sin la barra al final) y actualiza el `appsettings.json`:
-
-```json
-{
-  "MercadoPago": {
-    "BaseUrl": "https://xxxx-xx-xx-xxx-xxx.ngrok-free.app"
-  }
-}
-```
-
-**Importante:** Cada vez que reinicies ngrok, la URL cambiará y deberás actualizarla en `appsettings.json`.
-
-### 4. Restaurar Dependencias
+### 5. Restaurar Dependencias
 
 ```bash
 dotnet restore
 ```
 
-## Cómo Ejecutar
+## Como Ejecutar
 
 1. **Iniciar ngrok** (en una terminal separada):
 ```bash
@@ -134,145 +172,128 @@ ngrok http https://localhost:5001
 
 2. **Actualizar BaseUrl** en `appsettings.json` con la URL de ngrok
 
-3. **Ejecutar la aplicación**:
+3. **Ejecutar la aplicacion**:
 ```bash
 dotnet run
 ```
 
-4. **Abrir el navegador** en `https://localhost:5001` (o el puerto que muestre la consola)
+4. **Abrir el navegador** en `https://localhost:5001`
 
-## Credenciales de Prueba de Mercado Pago
+## Metodos de Pago
 
-Para realizar pruebas de pago, utiliza la siguiente cuenta de prueba de Mercado Pago:
+### Checkout Pro
 
-**Usuario:** `TESTUSER1564176571217246474`
-**Contraseña:** `oIDPYGcGO1`
+1. Usuario agrega productos al carrito
+2. Click en "Pagar con Mercado Pago"
+3. Se redirige a la pagina de Mercado Pago
+4. Usuario completa el pago
+5. MP redirige de vuelta a la aplicacion
+6. Webhook actualiza el estado de la orden
+
+### QR Dinamico
+
+1. Usuario agrega productos al carrito
+2. Click en "Pagar con QR"
+3. Se genera un codigo QR unico
+4. Usuario escanea con la app de Mercado Pago
+5. Usuario confirma el pago en la app
+6. SignalR notifica al navegador en tiempo real
+7. La pagina se actualiza automaticamente
+
+## Credenciales de Prueba
+
+**Usuario de prueba:** `TESTUSER1564176571217246474`
+**Contrasena:** `oIDPYGcGO1`
 
 ### Tarjetas de Prueba
 
-Al momento de pagar, puedes usar estas tarjetas de prueba:
-
 **Aprobada:**
-- Número: `5031 7557 3453 0604`
+- Numero: `5031 7557 3453 0604`
 - CVV: `123`
 - Fecha: Cualquier fecha futura
-- Titular: Cualquier nombre
 
 **Rechazada:**
-- Número: `5031 4332 1540 6351`
+- Numero: `5031 4332 1540 6351`
 - CVV: `123`
 - Fecha: Cualquier fecha futura
-- Titular: Cualquier nombre
 
-Más tarjetas de prueba en: [Tarjetas de prueba Mercado Pago](https://www.mercadopago.com.ar/developers/es/docs/checkout-api/testing/test-cards)
+Mas tarjetas: [Tarjetas de prueba Mercado Pago](https://www.mercadopago.com.ar/developers/es/docs/checkout-api/testing/test-cards)
 
 ## Funcionalidades
 
-### 1. Catálogo de Productos
-- Visualización de productos disponibles
-- Agregar productos al carrito
+| Funcionalidad | Descripcion |
+|---------------|-------------|
+| Catalogo | Visualizacion de productos disponibles |
+| Carrito | Agregar/eliminar productos, persistencia en sesion |
+| Checkout Pro | Redireccion a Mercado Pago |
+| Pago QR | Codigo QR dinamico por transaccion |
+| Webhooks | Notificaciones de pago de MP |
+| SignalR | Actualizacion en tiempo real |
+| Ordenes | Creacion y seguimiento de ordenes |
 
-### 2. Carrito de Compras
-- Agregar/eliminar productos
-- Actualizar cantidades
-- Persistencia en sesión
-- Cálculo automático del total
+## Estados de Ordenes
 
-### 3. Checkout con Mercado Pago
-- Integración con Checkout Pro
-- Creación de preferencia de pago
-- Redirección a Mercado Pago
-- Múltiples métodos de pago disponibles
+| Estado | Descripcion |
+|--------|-------------|
+| Created | Orden creada, sin procesar |
+| Pending | Pago pendiente o en proceso |
+| Approved | Pago aprobado |
+| Rejected | Pago rechazado |
 
-### 4. Procesamiento de Pagos
-- Webhooks de Mercado Pago
-- Actualización automática del estado de la orden
-- Asociación del payment ID de Mercado Pago con la orden interna
+## Endpoints
 
-### 5. Estado de Órdenes
-- Pending: Orden creada, pago pendiente
-- Approved: Pago aprobado
-- Rejected: Pago rechazado
+### Aplicacion Web
 
-## Flujo de Pago
-
-1. El usuario agrega productos al carrito
-2. El usuario hace clic en "Proceder al pago"
-3. Se crea una orden en el sistema con estado "Pending"
-4. Se genera una preferencia de pago en Mercado Pago
-5. El usuario es redirigido a Mercado Pago para completar el pago
-6. El usuario paga con su cuenta de prueba
-7. Mercado Pago redirige al usuario de vuelta a la aplicación 
-8. Mercado Pago envía un webhook con la notificación del pago
-9. El sistema actualiza el estado de la orden y guarda el payment ID
-10. El usuario ve el resultado del pago
-
-## Estructura de Datos
-
-### Order
-```json
-{
-  "Id": "guid-interno",
-  "Title": "Orden guid-interno",
-  "Total": 6400,
-  "CurrencyId": "ARS",
-  "Status": 2,
-  "CreatedAt": "2026-01-02T20:24:40.2566634-03:00",
-  "Items": [...],
-  "MercadoPagoPreferenceId": "3068452461-efb0955c-5830-41eb-ab07-a87392250e80",
-  "MercadoPagoPaymentId": 1234567890
-}
-```
-
-### Estados de Orden
-- `1`: Pending (Pendiente)
-- `2`: Approved (Aprobado)
-- `3`: Rejected (Rechazado)
-
-## Endpoints Importantes
-
-### Aplicación Web
-- `GET /` - Página principal con catálogo
-- `POST /Checkout/Checkout` - Procesar checkout
-- `GET /checkout/return/{result}` - Página de resultado del pago
+| Metodo | Ruta | Descripcion |
+|--------|------|-------------|
+| GET | `/` | Catalogo de productos |
+| POST | `/Checkout/Checkout` | Iniciar Checkout Pro |
+| POST | `/MercadoPago/paymentQr` | Generar QR de pago |
+| GET | `/checkout/return/{result}` | Resultado del pago |
 
 ### Webhooks
-- `POST /webhooks/mercadopago` - Webhook de notificaciones de Mercado Pago
 
-## Configuración de URLs en Mercado Pago
+| Metodo | Ruta | Descripcion |
+|--------|------|-------------|
+| POST | `/webhooks/mercadopago` | Webhook Checkout Pro (type=payment) |
+| POST | `/webhooks/mercadopago/qr` | Webhook QR (topic=merchant_order) |
 
-Las siguientes URLs se configuran automáticamente al crear la preferencia:
+### SignalR
 
-**Back URLs:**
-- Success: `{BaseUrl}/checkout/return/success`
-- Failure: `{BaseUrl}/checkout/return/failure`
-- Pending: `{BaseUrl}/checkout/return/pending`
+| Hub | Ruta |
+|-----|------|
+| PaymentNotificationHub | `/hubs/payment-notification` |
 
-**Notification URL:**
-- `{BaseUrl}/webhooks/mercadopago`
-
-## Solución de Problemas
+## Solucion de Problemas
 
 ### El webhook no llega
-1. Verifica que ngrok esté corriendo
-2. Confirma que la BaseUrl en `appsettings.json` sea la correcta
-3. Revisa los logs de la aplicación
+1. Verifica que ngrok este corriendo
+2. Confirma que la BaseUrl sea correcta
+3. Revisa los logs de la aplicacion
 4. Revisa el dashboard de ngrok en `http://127.0.0.1:4040`
 
-### Error de redirección después del pago
-- Verifica que las rutas del controlador coincidan con las BackUrls configuradas
-- Revisa que el controlador `CheckoutController` tenga la ruta correcta
+### SignalR no notifica
+1. Verifica en la consola del navegador (F12) que la conexion se establecio
+2. Confirma que el cliente se unio al grupo de la orden
+3. Revisa los logs del servidor
 
-### La orden no se actualiza después del pago
-- Verifica que el webhook esté llegando (logs de la aplicación)
-- Confirma que el ExternalReference de Mercado Pago coincida con el ID de la orden
+### Error 403 en QR
+- El `UserId` no coincide con el dueno del `AccessToken`
+- Ambos deben pertenecer al mismo Test User vendedor
+
+### Error "sponsor y collector deben ser de tipos iguales"
+- No incluir el campo `sponsor` cuando uses Test Users
 
 ## Notas de Desarrollo
 
-- Este es un **POC (Proof of Concept)**, no está listo para producción
-- Los datos se almacenan en archivos JSON en la carpeta `Data/`
-- El carrito se almacena en sesión (se pierde al cerrar el navegador)
-- Las credenciales están en `appsettings.json` solo para fines de demostración
-- En producción, usa variables de entorno o Azure Key Vault para secrets
+- Este es un **POC**, no esta listo para produccion
+- Los datos se almacenan en archivos JSON en `Data/`
+- El carrito se almacena en sesion (se pierde al cerrar el navegador)
+- En produccion, usar variables de entorno o Azure Key Vault para secrets
+- Consultar la carpeta `doc/` para documentacion detallada
 
-# Pensar como integrarlo.
+## Referencias
+
+- [Mercado Pago - Checkout Pro](https://www.mercadopago.com.ar/developers/es/docs/checkout-pro/landing)
+- [Mercado Pago - QR Dinamico](https://www.mercadopago.com.ar/developers/es/docs/qr-code/integration-configuration/qr-dynamic/integration)
+- [ASP.NET Core SignalR](https://docs.microsoft.com/en-us/aspnet/core/signalr/introduction)
