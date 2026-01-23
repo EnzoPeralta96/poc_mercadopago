@@ -8,7 +8,7 @@ namespace poc_mercadopago.Application.Services.PaymentService
         Task<PaymentResultDTO> GetPaymentResultAsync(long paymentId, CancellationToken cancellationToken = default);
 
         Task<StartQrResponse> StartQrAsync(StartQrRequest request, CancellationToken cancellationToken = default);
-        Task<QrPaymentStatusDTO> GetQrPaymentStatusAsync(string orderId, CancellationToken cancellationToken = default);
+        //Task<QrPaymentStatusDTO> GetQrPaymentStatusAsync(string orderId, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Procesa una notificación de merchant order desde el webhook de MercadoPago.

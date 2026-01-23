@@ -3,6 +3,19 @@ using static QRCoder.QRCodeGenerator;
 
 namespace poc_mercadopago.Infrastructure.QRCode
 {
+    /// <summary>
+    /// Generador de imágenes QR a partir de datos de texto.
+    ///
+    /// Este servicio convierte el string qr_data de Mercado Pago (formato EMV)
+    /// en una imagen PNG codificada en Base64 lista para mostrar en HTML.
+    ///
+    /// Uso:
+    /// El qr_data de MP es un string como "00020101021226870014br.gov.bcb.pix..."
+    /// Este servicio lo convierte a "data:image/png;base64,iVBORw0KGgo..."
+    /// que puede usarse directamente en un <img src="...">.
+    ///
+    /// Dependencia: QRCoder (NuGet package)
+    /// </summary>
     public class QrCodeGenerator : IQrCodeGenerator
     {
         private readonly ILogger<QrCodeGenerator> _logger;
@@ -12,6 +25,26 @@ namespace poc_mercadopago.Infrastructure.QRCode
             _logger = logger;
         }
 
+        /// <summary>
+        /// Genera una imagen QR en formato PNG codificada en Base64.
+        ///
+        /// Proceso:
+        /// 1. Recibe el qr_data (string EMV) de Mercado Pago
+        /// 2. Genera la matriz QR usando QRCoder
+        /// 3. Renderiza a imagen PNG
+        /// 4. Codifica en Base64
+        /// 5. Agrega prefijo data URI para uso en HTML
+        ///
+        /// El resultado puede usarse directamente en HTML:
+        /// <img src="@result" />
+        /// </summary>
+        /// <param name="qrData">String EMV retornado por la API de MP (qr_data)</param>
+        /// <param name="pixelsPerModule">
+        /// Tamaño del QR en píxeles por módulo.
+        /// Un módulo es cada "cuadradito" del QR.
+        /// Valor típico: 20 (resulta en un QR de ~500-600px de lado)
+        /// </param>
+        /// <returns>Data URI listo para usar en <img src="..."></returns>
         public string GenerateQrImageBase64(string qrData, int pixelsPerModule = 20)
         {
             try
@@ -21,20 +54,32 @@ namespace poc_mercadopago.Infrastructure.QRCode
                     _logger.LogWarning("El dato para generar el QR es nulo o vacío.");
                     throw new ArgumentException("El dato para generar el QR no puede ser nulo o vacío.", nameof(qrData));
                 }
-                // Crear generador de QR
+
+                // Crear instancia del generador de QR
                 using var qrGenerator = new QRCodeGenerator();
 
-                // Generar datos del QR con nivel de corrección de error Medium
-                // ECC Level M = 15% - nivel de corrección de errores (balance entre tamaño y robustez)
+                // Generar la matriz de datos del QR
+                // ECC Level M = 15% de corrección de errores
+                // Es un balance entre:
+                // - L (7%): QR más pequeño pero menos tolerante a daños
+                // - M (15%): Balance recomendado para la mayoría de casos
+                // - Q (25%): Más tolerante pero QR más grande
+                // - H (30%): Máxima tolerancia pero QR muy grande
                 using var qrCodeData = qrGenerator.CreateQrCode(qrData, ECCLevel.M);
 
-                //Crear render de PNG
+                // Crear renderer para PNG (sin dependencia de System.Drawing)
+                // PngByteQRCode usa librerías nativas y es cross-platform
                 using var qrCode = new PngByteQRCode(qrCodeData);
-                //Generar bytes de la imagen png
+
+                // Generar los bytes de la imagen PNG
+                // pixelsPerModule determina el tamaño final del QR
                 byte[] qrCodeBytes = qrCode.GetGraphic(pixelsPerModule);
 
-                // Convertir a Base64 con prefijo data URI
+                // Convertir a Base64
                 string base64 = Convert.ToBase64String(qrCodeBytes);
+
+                // Agregar prefijo data URI para uso directo en HTML
+                // Formato: data:image/png;base64,{datos}
                 string dataUri = $"data:image/png;base64,{base64}";
 
                 _logger.LogInformation(
@@ -50,9 +95,6 @@ namespace poc_mercadopago.Infrastructure.QRCode
                 _logger.LogError("Error al generar el código QR.");
                 throw;
             }
-
-
-
         }
     }
 }

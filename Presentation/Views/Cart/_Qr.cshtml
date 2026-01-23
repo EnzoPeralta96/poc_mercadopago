@@ -1,22 +1,47 @@
+@*
+    Vista parcial para mostrar el código QR de pago.
+
+    Esta vista se carga dinámicamente en el offcanvas del carrito cuando el usuario
+    hace clic en "Pagar con QR" (llamando a proceedToQr() en cart.js).
+
+    Flujo:
+    1. Usuario hace clic en "Pagar con QR"
+    2. cart.js llama a POST /MercadoPago/PaymentQr
+    3. El controlador retorna esta vista parcial
+    4. cart.js inserta el HTML en el offcanvas via innerHTML
+    5. cart.js inicializa SignalR manualmente (los scripts en innerHTML no se ejecutan)
+    6. El cliente SignalR se une al grupo de la orden
+    7. Cuando el usuario paga, el webhook notifica vía SignalR
+    8. El cliente redirige al usuario a la página de resultado
+
+    IMPORTANTE: El atributo data-order-id es CRÍTICO.
+    cart.js lo usa para inicializar la conexión SignalR con el orderId correcto.
+*@
+
 @using poc_mercadopago.Presentation.ViewModels.QrViewModels
 @model QrViewModel
 
+@* El data-order-id es usado por cart.js para inicializar SignalR *@
 <div class="p-3" id="checkout-qr-content" data-order-id="@Model.OrderId">
     <div class="text-center">
-        <!-- Icono de QR -->
+        <!-- Icono de QR decorativo -->
         <i class="bi bi-qr-code display-4 text-primary mb-3"></i>
-        
+
         <h5 class="mb-3">Escanea el código QR</h5>
-        
-        <!-- Instrucciones -->
+
+        <!-- Instrucciones para el usuario -->
         <p class="text-muted small mb-4">
             Abre la aplicación de Mercado Pago en tu celular y escanea este código para pagar
         </p>
 
-        <!-- Imagen QR -->
+        <!--
+            Imagen QR generada desde el qr_data de Mercado Pago.
+            El src es un data URI en formato base64 (data:image/png;base64,...).
+            Esto evita una request adicional al servidor.
+        -->
         <div class="qr-code-container mb-4">
-            <img src="@Model.QrImageBase64" 
-                 alt="Código QR de pago" 
+            <img src="@Model.QrImageBase64"
+                 alt="Código QR de pago"
                  class="img-fluid qr-code-image"
                  style="max-width: 300px; border: 2px solid #ddd; border-radius: 8px; padding: 10px; background: white;" />
         </div>
@@ -29,7 +54,11 @@
             </h4>
         </div>
 
-        <!-- Estado de conexión SignalR -->
+        <!--
+            Indicador de estado de conexión SignalR.
+            Muestra "Esperando pago..." mientras el cliente espera la notificación.
+            qr-payment.js puede actualizar este elemento cuando cambie el estado.
+        -->
         <div id="qr-connection-status" class="mb-3">
             <div class="d-flex align-items-center justify-content-center">
                 <div class="spinner-border spinner-border-sm text-primary me-2" role="status">
@@ -39,7 +68,7 @@
             </div>
         </div>
 
-        <!-- Información adicional -->
+        <!-- Información adicional para el usuario -->
         <div class="alert alert-light">
             <small class="text-muted">
                 <i class="bi bi-info-circle"></i>
@@ -47,14 +76,17 @@
             </small>
         </div>
 
-        <!-- Botón de cancelar (opcional) -->
-        <button type="button" 
-                class="btn btn-outline-secondary btn-sm mt-3" 
+        <!--
+            Botón para cancelar y volver al carrito.
+            cancelQrCheckout() en cart.js limpia la conexión SignalR y recarga el carrito.
+        -->
+        <button type="button"
+                class="btn btn-outline-secondary btn-sm mt-3"
                 onclick="cancelQrCheckout()">
             <i class="bi bi-arrow-left"></i> Cancelar y volver al carrito
         </button>
 
-        <!-- Debug info (solo en desarrollo) -->
+        <!-- Debug info (solo visible en localhost) -->
         @if (ViewContext.HttpContext.Request.Host.Host.Contains("localhost"))
         {
             <div class="mt-3">
@@ -66,19 +98,3 @@
         }
     </div>
 </div>
-
-@* Script de inicialización (se ejecuta después de cargar la vista) *@
-<script>
-    // Inicializar SignalR cuando la vista se carga
-    (function() {
-        var orderId = '@Model.OrderId';
-        console.log('Inicializando notificaciones QR para orden:', orderId);
-
-        // Llamar a la función global definida en qr-payment.js
-        if (typeof startQrPaymentNotificationClient === 'function') {
-            startQrPaymentNotificationClient(orderId);
-        } else {
-            console.error('qr-payment.js no está cargado');
-        }
-    })();
-</script>

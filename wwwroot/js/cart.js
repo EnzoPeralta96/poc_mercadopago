@@ -349,16 +349,48 @@ function showToast(message, type = 'success') {
 }
 
 // ============================================================
-// CHECKOUT CON QR DINÁMICO
+// CHECKOUT CON QR DINÁMICO (MERCADO PAGO INSTORE ORDERS)
+// ============================================================
+//
+// Este módulo implementa el flujo de pago con QR dinámico:
+// 1. Usuario hace clic en "Pagar con QR"
+// 2. Se llama a /MercadoPago/PaymentQr para generar el QR
+// 3. Se muestra el QR en el offcanvas
+// 4. Se inicia conexión SignalR para recibir notificación de pago
+// 5. Usuario escanea el QR con la app de Mercado Pago
+// 6. MP envía webhook al servidor
+// 7. El servidor notifica vía SignalR
+// 8. El cliente redirige al usuario
+//
+// Dependencias:
+// - qr-payment.js: Cliente SignalR (startQrPaymentNotificationClient, cleanupQrPaymentNotification)
+// - signalr.js: Librería de Microsoft SignalR
 // ============================================================
 
 /**
  * Inicia el proceso de checkout con QR Dinámico.
- * Similar a proceedToCheckout() pero llama a /Cart/CheckoutQr
+ *
+ * Flujo detallado:
+ * 1. Mostrar spinner de "Generando código QR..."
+ * 2. Llamar a POST /MercadoPago/PaymentQr
+ * 3. El servidor crea la orden local y llama a la API de MP
+ * 4. MP retorna el qr_data (string EMV)
+ * 5. El servidor genera la imagen QR y la retorna como HTML
+ * 6. Insertar el HTML en el offcanvas
+ * 7. Inicializar SignalR manualmente (los scripts en innerHTML no se ejecutan)
+ * 8. SignalR se conecta y se une al grupo de la orden
+ * 9. Cuando llega el webhook, SignalR notifica y redirigimos
+ *
+ * IMPORTANTE sobre innerHTML y scripts:
+ * Cuando se inserta HTML via innerHTML, los <script> dentro NO se ejecutan.
+ * Esto es una medida de seguridad del navegador. Por eso debemos llamar
+ * a startQrPaymentNotificationClient() manualmente después de insertar el HTML.
  */
 function proceedToQr() {
-    // Mostrar loading state
+    // Referencia al contenedor del carrito (offcanvas body)
     const cartBody = document.getElementById('cart-offcanvas-body');
+
+    // Mostrar estado de carga mientras se genera el QR
     cartBody.innerHTML = `
         <div class="text-center py-5">
             <div class="spinner-border text-primary" role="status">
@@ -368,14 +400,15 @@ function proceedToQr() {
         </div>
     `;
 
-    // Get anti-forgery token
+    // Obtener token anti-forgery para protección CSRF
     const token = document.querySelector('input[name="__RequestVerificationToken"]');
     const formData = new FormData();
     if (token) {
         formData.append('__RequestVerificationToken', token.value);
     }
 
-    // Call checkout QR endpoint
+    // Llamar al endpoint que genera el QR
+    // POST /MercadoPago/PaymentQr
     fetch('/MercadoPago/paymentQr', {
         method: 'POST',
         body: formData
@@ -384,19 +417,31 @@ function proceedToQr() {
         if (!response.ok) {
             throw new Error('Error al generar código QR');
         }
-        return response.text();
+        return response.text();  // El servidor retorna HTML
     })
     .then(html => {
-        // Reemplazar contenido del offcanvas con la vista del QR
+        // Insertar el HTML de la vista _Qr.cshtml en el offcanvas
         cartBody.innerHTML = html;
 
-        // IMPORTANTE: Los scripts dentro de innerHTML NO se ejecutan automáticamente
-        // Debemos inicializar SignalR manualmente extrayendo el orderId del HTML cargado
+        // ============================================================
+        // INICIALIZACIÓN MANUAL DE SIGNALR
+        // ============================================================
+        // IMPORTANTE: Los scripts dentro de innerHTML NO se ejecutan automáticamente.
+        // Esto es una medida de seguridad del navegador.
+        // Por eso debemos inicializar SignalR manualmente.
+        //
+        // La vista _Qr.cshtml tiene un div con data-order-id que contiene
+        // el ID de la orden. Extraemos ese ID y llamamos a la función
+        // de qr-payment.js para iniciar la conexión SignalR.
+        // ============================================================
         const qrContent = document.getElementById('checkout-qr-content');
         if (qrContent) {
+            // Extraer el orderId del atributo data-order-id del HTML
             const orderId = qrContent.getAttribute('data-order-id');
+
             if (orderId && typeof startQrPaymentNotificationClient === 'function') {
                 console.log('Inicializando SignalR para orden:', orderId);
+                // Iniciar conexión SignalR y unirse al grupo de la orden
                 startQrPaymentNotificationClient(orderId);
             } else {
                 console.error('No se pudo inicializar SignalR: orderId o función no disponible');
@@ -406,6 +451,7 @@ function proceedToQr() {
         console.log('Vista QR cargada exitosamente');
     })
     .catch(error => {
+        // Mostrar error si no se pudo generar el QR
         console.error('Error:', error);
         cartBody.innerHTML = `
             <div class="text-center py-5">
@@ -422,13 +468,20 @@ function proceedToQr() {
 
 /**
  * Cancela el checkout QR y vuelve al carrito.
+ *
+ * Esta función:
+ * 1. Limpia la conexión SignalR (para no dejar conexiones huérfanas)
+ * 2. Recarga el contenido del carrito
+ *
+ * Es llamada desde el botón "Cancelar" en la vista _Qr.cshtml
  */
 function cancelQrCheckout() {
-    // Limpiar SignalR si está activo
+    // Limpiar la conexión SignalR si está activa
+    // Esto evita que queden conexiones abiertas innecesariamente
     if (typeof cleanupQrPaymentNotification === 'function') {
         cleanupQrPaymentNotification();
     }
-    
-    // Recargar contenido del carrito
+
+    // Recargar el contenido normal del carrito
     loadCartContent();
 }
