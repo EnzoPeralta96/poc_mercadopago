@@ -4,139 +4,159 @@
     "name": "Martillo de Acero",
     "description": "Martillo clásico de acero forjado",
     "price": 8500,
-    "currencyId": "ARS"
+    "currencyId": "ARS",
+    "imageUrl": "https://placehold.co/300x300?text=Martillo"
   },
   {
     "id": "P002",
     "name": "Destornillador Plano",
     "description": "Destornillador plano punta reforzada",
     "price": 3200,
-    "currencyId": "ARS"
+    "currencyId": "ARS",
+    "imageUrl": "https://placehold.co/300x300?text=Destornillador+Plano"
   },
   {
     "id": "P003",
     "name": "Destornillador Phillips",
     "description": "Destornillador estrella PH2",
     "price": 3500,
-    "currencyId": "ARS"
+    "currencyId": "ARS",
+    "imageUrl": "https://placehold.co/300x300?text=Destornillador+Phillips"
   },
   {
     "id": "P004",
     "name": "Taladro Inalámbrico",
     "description": "Taladro 18V con batería recargable",
     "price": 92000,
-    "currencyId": "ARS"
+    "currencyId": "ARS",
+    "imageUrl": "https://placehold.co/300x300?text=Taladro"
   },
   {
     "id": "P005",
     "name": "Amoladora Angular",
     "description": "Amoladora 850W disco 115mm",
     "price": 78000,
-    "currencyId": "ARS"
+    "currencyId": "ARS",
+    "imageUrl": "https://placehold.co/300x300?text=Amoladora"
   },
   {
     "id": "P006",
     "name": "Juego de Llaves Combinadas",
     "description": "Set de llaves métricas x12 piezas",
     "price": 26500,
-    "currencyId": "ARS"
+    "currencyId": "ARS",
+    "imageUrl": "https://placehold.co/300x300?text=Llaves+Combinadas"
   },
   {
     "id": "P007",
     "name": "Pinza Universal",
     "description": "Pinza multiuso aislada",
     "price": 6800,
-    "currencyId": "ARS"
+    "currencyId": "ARS",
+    "imageUrl": "https://placehold.co/300x300?text=Pinza"
   },
   {
     "id": "P008",
     "name": "Cinta Métrica 5m",
     "description": "Cinta métrica reforzada 5 metros",
     "price": 4200,
-    "currencyId": "ARS"
+    "currencyId": "ARS",
+    "imageUrl": "https://placehold.co/300x300?text=Cinta+Metrica"
   },
   {
     "id": "P009",
     "name": "Nivel de Burbuja",
     "description": "Nivel profesional 40 cm",
     "price": 7300,
-    "currencyId": "ARS"
+    "currencyId": "ARS",
+    "imageUrl": "https://placehold.co/300x300?text=Nivel"
   },
   {
     "id": "P010",
     "name": "Caja de Tornillos",
     "description": "Tornillos surtidos x500 unidades",
     "price": 9800,
-    "currencyId": "ARS"
+    "currencyId": "ARS",
+    "imageUrl": "https://placehold.co/300x300?text=Tornillos"
   },
   {
     "id": "P011",
     "name": "Guantes de Trabajo",
     "description": "Guantes reforzados antideslizantes",
     "price": 4600,
-    "currencyId": "ARS"
+    "currencyId": "ARS",
+    "imageUrl": "https://placehold.co/300x300?text=Guantes"
   },
   {
     "id": "P012",
     "name": "Sierra Manual",
     "description": "Sierra para madera 20 pulgadas",
     "price": 12500,
-    "currencyId": "ARS"
+    "currencyId": "ARS",
+    "imageUrl": "https://placehold.co/300x300?text=Sierra"
   },
   {
     "id": "P013",
     "name": "Llave Francesa",
     "description": "Llave ajustable 10 pulgadas",
     "price": 8900,
-    "currencyId": "ARS"
+    "currencyId": "ARS",
+    "imageUrl": "https://placehold.co/300x300?text=Llave+Francesa"
   },
   {
     "id": "P014",
     "name": "Escalera de Aluminio",
     "description": "Escalera plegable 6 escalones",
     "price": 115000,
-    "currencyId": "ARS"
+    "currencyId": "ARS",
+    "imageUrl": "https://placehold.co/300x300?text=Escalera"
   },
   {
     "id": "P015",
     "name": "Soldadora Inverter",
     "description": "Soldadora inverter 200A",
     "price": 185000,
-    "currencyId": "ARS"
+    "currencyId": "ARS",
+    "imageUrl": "https://placehold.co/300x300?text=Soldadora"
   },
   {
     "id": "P016",
     "name": "Extensión Eléctrica 10m",
     "description": "Extensión eléctrica reforzada",
     "price": 11200,
-    "currencyId": "ARS"
+    "currencyId": "ARS",
+    "imageUrl": "https://placehold.co/300x300?text=Extension+Electrica"
   },
   {
     "id": "P017",
     "name": "Compresor de Aire",
     "description": "Compresor portátil 25 litros",
     "price": 215000,
-    "currencyId": "ARS"
+    "currencyId": "ARS",
+    "imageUrl": "https://placehold.co/300x300?text=Compresor"
   },
   {
     "id": "P018",
     "name": "Pistola de Calor",
     "description": "Pistola de calor 2000W",
     "price": 49500,
-    "currencyId": "ARS"
+    "currencyId": "ARS",
+    "imageUrl": "https://placehold.co/300x300?text=Pistola+de+Calor"
   },
   {
     "id": "P019",
     "name": "Caja de Herramientas",
     "description": "Caja plástica reforzada",
     "price": 17800,
-    "currencyId": "ARS"
+    "currencyId": "ARS",
+    "imageUrl": "https://placehold.co/300x300?text=Caja+Herramientas"
   },
   {
     "id": "P020",
     "name": "Lijadora Orbital",
     "description": "Lijadora orbital 300W",
     "price": 64500,
-    "currencyId": "ARS"
+    "currencyId": "ARS",
+    "imageUrl": "https://placehold.co/300x300?text=Lijadora"
   }
 ]

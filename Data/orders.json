@@ -10,6 +10,8 @@
       {
         "ProductId": "P002",
         "Title": "Destornillador Plano",
+        "Description": null,
+        "ImageUrl": null,
         "Quantity": 2,
         "UnitPrice": 3200,
         "CurrencyId": "ARS",
@@ -31,6 +33,8 @@
       {
         "ProductId": "P002",
         "Title": "Destornillador Plano",
+        "Description": null,
+        "ImageUrl": null,
         "Quantity": 2,
         "UnitPrice": 3200,
         "CurrencyId": "ARS",
@@ -52,6 +56,8 @@
       {
         "ProductId": "P002",
         "Title": "Destornillador Plano",
+        "Description": null,
+        "ImageUrl": null,
         "Quantity": 2,
         "UnitPrice": 3200,
         "CurrencyId": "ARS",
@@ -73,6 +79,8 @@
       {
         "ProductId": "P002",
         "Title": "Destornillador Plano",
+        "Description": null,
+        "ImageUrl": null,
         "Quantity": 3,
         "UnitPrice": 3200,
         "CurrencyId": "ARS",
@@ -94,6 +102,8 @@
       {
         "ProductId": "P002",
         "Title": "Destornillador Plano",
+        "Description": null,
+        "ImageUrl": null,
         "Quantity": 3,
         "UnitPrice": 3200,
         "CurrencyId": "ARS",
@@ -115,6 +125,8 @@
       {
         "ProductId": "P002",
         "Title": "Destornillador Plano",
+        "Description": null,
+        "ImageUrl": null,
         "Quantity": 2,
         "UnitPrice": 3200,
         "CurrencyId": "ARS",
@@ -136,6 +148,8 @@
       {
         "ProductId": "P003",
         "Title": "Destornillador Phillips",
+        "Description": null,
+        "ImageUrl": null,
         "Quantity": 2,
         "UnitPrice": 3500,
         "CurrencyId": "ARS",
@@ -157,6 +171,8 @@
       {
         "ProductId": "P002",
         "Title": "Destornillador Plano",
+        "Description": null,
+        "ImageUrl": null,
         "Quantity": 1,
         "UnitPrice": 3200,
         "CurrencyId": "ARS",
@@ -178,6 +194,8 @@
       {
         "ProductId": "P002",
         "Title": "Destornillador Plano",
+        "Description": null,
+        "ImageUrl": null,
         "Quantity": 2,
         "UnitPrice": 3200,
         "CurrencyId": "ARS",
@@ -199,6 +217,8 @@
       {
         "ProductId": "P018",
         "Title": "Pistola de Calor",
+        "Description": null,
+        "ImageUrl": null,
         "Quantity": 1,
         "UnitPrice": 49500,
         "CurrencyId": "ARS",
@@ -220,6 +240,8 @@
       {
         "ProductId": "P016",
         "Title": "Extensi\u00F3n El\u00E9ctrica 10m",
+        "Description": null,
+        "ImageUrl": null,
         "Quantity": 2,
         "UnitPrice": 11200,
         "CurrencyId": "ARS",
@@ -241,6 +263,8 @@
       {
         "ProductId": "P006",
         "Title": "Juego de Llaves Combinadas",
+        "Description": null,
+        "ImageUrl": null,
         "Quantity": 1,
         "UnitPrice": 26500,
         "CurrencyId": "ARS",
@@ -262,6 +286,8 @@
       {
         "ProductId": "P006",
         "Title": "Juego de Llaves Combinadas",
+        "Description": null,
+        "ImageUrl": null,
         "Quantity": 1,
         "UnitPrice": 26500,
         "CurrencyId": "ARS",
@@ -283,6 +309,8 @@
       {
         "ProductId": "P005",
         "Title": "Amoladora Angular",
+        "Description": null,
+        "ImageUrl": null,
         "Quantity": 1,
         "UnitPrice": 78000,
         "CurrencyId": "ARS",
@@ -304,6 +332,8 @@
       {
         "ProductId": "P002",
         "Title": "Destornillador Plano",
+        "Description": null,
+        "ImageUrl": null,
         "Quantity": 1,
         "UnitPrice": 3200,
         "CurrencyId": "ARS",
@@ -325,6 +355,8 @@
       {
         "ProductId": "P002",
         "Title": "Destornillador Plano",
+        "Description": null,
+        "ImageUrl": null,
         "Quantity": 1,
         "UnitPrice": 3200,
         "CurrencyId": "ARS",
@@ -346,6 +378,8 @@
       {
         "ProductId": "P002",
         "Title": "Destornillador Plano",
+        "Description": null,
+        "ImageUrl": null,
         "Quantity": 1,
         "UnitPrice": 3200,
         "CurrencyId": "ARS",
@@ -367,6 +401,8 @@
       {
         "ProductId": "P002",
         "Title": "Destornillador Plano",
+        "Description": null,
+        "ImageUrl": null,
         "Quantity": 1,
         "UnitPrice": 3200,
         "CurrencyId": "ARS",
@@ -388,6 +424,8 @@
       {
         "ProductId": "P003",
         "Title": "Destornillador Phillips",
+        "Description": null,
+        "ImageUrl": null,
         "Quantity": 1,
         "UnitPrice": 3500,
         "CurrencyId": "ARS",
@@ -409,6 +447,8 @@
       {
         "ProductId": "P002",
         "Title": "Destornillador Plano",
+        "Description": null,
+        "ImageUrl": null,
         "Quantity": 3,
         "UnitPrice": 3200,
         "CurrencyId": "ARS",
@@ -430,6 +470,8 @@
       {
         "ProductId": "P002",
         "Title": "Destornillador Plano",
+        "Description": null,
+        "ImageUrl": null,
         "Quantity": 2,
         "UnitPrice": 3200,
         "CurrencyId": "ARS",
@@ -451,6 +493,8 @@
       {
         "ProductId": "P002",
         "Title": "Destornillador Plano",
+        "Description": null,
+        "ImageUrl": null,
         "Quantity": 2,
         "UnitPrice": 3200,
         "CurrencyId": "ARS",
@@ -472,6 +516,8 @@
       {
         "ProductId": "P002",
         "Title": "Destornillador Plano",
+        "Description": null,
+        "ImageUrl": null,
         "Quantity": 1,
         "UnitPrice": 3200,
         "CurrencyId": "ARS",
@@ -493,6 +539,8 @@
       {
         "ProductId": "P002",
         "Title": "Destornillador Plano",
+        "Description": null,
+        "ImageUrl": null,
         "Quantity": 2,
         "UnitPrice": 3200,
         "CurrencyId": "ARS",
@@ -514,6 +562,8 @@
       {
         "ProductId": "P003",
         "Title": "Destornillador Phillips",
+        "Description": null,
+        "ImageUrl": null,
         "Quantity": 2,
         "UnitPrice": 3500,
         "CurrencyId": "ARS",
@@ -535,6 +585,8 @@
       {
         "ProductId": "P003",
         "Title": "Destornillador Phillips",
+        "Description": null,
+        "ImageUrl": null,
         "Quantity": 2,
         "UnitPrice": 3500,
         "CurrencyId": "ARS",
@@ -556,6 +608,8 @@
       {
         "ProductId": "P002",
         "Title": "Destornillador Plano",
+        "Description": null,
+        "ImageUrl": null,
         "Quantity": 2,
         "UnitPrice": 3200,
         "CurrencyId": "ARS",
@@ -577,6 +631,8 @@
       {
         "ProductId": "P002",
         "Title": "Destornillador Plano",
+        "Description": null,
+        "ImageUrl": null,
         "Quantity": 1,
         "UnitPrice": 3200,
         "CurrencyId": "ARS",
@@ -598,6 +654,8 @@
       {
         "ProductId": "P003",
         "Title": "Destornillador Phillips",
+        "Description": null,
+        "ImageUrl": null,
         "Quantity": 1,
         "UnitPrice": 3500,
         "CurrencyId": "ARS",
@@ -619,6 +677,8 @@
       {
         "ProductId": "P002",
         "Title": "Destornillador Plano",
+        "Description": null,
+        "ImageUrl": null,
         "Quantity": 1,
         "UnitPrice": 3200,
         "CurrencyId": "ARS",
@@ -640,6 +700,8 @@
       {
         "ProductId": "P003",
         "Title": "Destornillador Phillips",
+        "Description": null,
+        "ImageUrl": null,
         "Quantity": 1,
         "UnitPrice": 3500,
         "CurrencyId": "ARS",
@@ -661,6 +723,8 @@
       {
         "ProductId": "P002",
         "Title": "Destornillador Plano",
+        "Description": null,
+        "ImageUrl": null,
         "Quantity": 1,
         "UnitPrice": 3200,
         "CurrencyId": "ARS",
@@ -682,6 +746,8 @@
       {
         "ProductId": "P003",
         "Title": "Destornillador Phillips",
+        "Description": null,
+        "ImageUrl": null,
         "Quantity": 1,
         "UnitPrice": 3500,
         "CurrencyId": "ARS",
@@ -703,6 +769,8 @@
       {
         "ProductId": "P002",
         "Title": "Destornillador Plano",
+        "Description": null,
+        "ImageUrl": null,
         "Quantity": 2,
         "UnitPrice": 3200,
         "CurrencyId": "ARS",
@@ -724,6 +792,8 @@
       {
         "ProductId": "P002",
         "Title": "Destornillador Plano",
+        "Description": null,
+        "ImageUrl": null,
         "Quantity": 1,
         "UnitPrice": 3200,
         "CurrencyId": "ARS",
@@ -745,6 +815,8 @@
       {
         "ProductId": "P002",
         "Title": "Destornillador Plano",
+        "Description": null,
+        "ImageUrl": null,
         "Quantity": 1,
         "UnitPrice": 3200,
         "CurrencyId": "ARS",
@@ -754,5 +826,419 @@
     "MercadoPagoPreferenceId": null,
     "MercadoPagoPaymentId": null,
     "MercadoPagoInStoreOrderId": "0bf1886b-19e0-451a-a5c3-72cc43c735bf"
+  },
+  {
+    "Id": "1912ce850e2d4193a1b09337c73d9c69",
+    "Title": "Orden 1912ce850e2d4193a1b09337c73d9c69",
+    "Total": 9600,
+    "CurrencyId": "ARS",
+    "Status": 1,
+    "CreatedAt": "2026-01-26T15:25:44.7159807-03:00",
+    "Items": [
+      {
+        "ProductId": "P002",
+        "Title": "Destornillador Plano",
+        "Description": null,
+        "ImageUrl": null,
+        "Quantity": 3,
+        "UnitPrice": 3200,
+        "CurrencyId": "ARS",
+        "SubTotal": 9600
+      }
+    ],
+    "MercadoPagoPreferenceId": null,
+    "MercadoPagoPaymentId": null,
+    "MercadoPagoInStoreOrderId": null
+  },
+  {
+    "Id": "0388b7ee1484411da1a840279c6aed8a",
+    "Title": "Orden 0388b7ee1484411da1a840279c6aed8a",
+    "Total": 9600,
+    "CurrencyId": "ARS",
+    "Status": 1,
+    "CreatedAt": "2026-01-26T15:26:06.003202-03:00",
+    "Items": [
+      {
+        "ProductId": "P002",
+        "Title": "Destornillador Plano",
+        "Description": null,
+        "ImageUrl": null,
+        "Quantity": 3,
+        "UnitPrice": 3200,
+        "CurrencyId": "ARS",
+        "SubTotal": 9600
+      }
+    ],
+    "MercadoPagoPreferenceId": null,
+    "MercadoPagoPaymentId": null,
+    "MercadoPagoInStoreOrderId": null
+  },
+  {
+    "Id": "daaccb312a7046679cd385239f6fab47",
+    "Title": "Orden daaccb312a7046679cd385239f6fab47",
+    "Total": 6400,
+    "CurrencyId": "ARS",
+    "Status": 1,
+    "CreatedAt": "2026-01-26T15:27:08.3709131-03:00",
+    "Items": [
+      {
+        "ProductId": "P002",
+        "Title": "Destornillador Plano",
+        "Description": null,
+        "ImageUrl": null,
+        "Quantity": 2,
+        "UnitPrice": 3200,
+        "CurrencyId": "ARS",
+        "SubTotal": 6400
+      }
+    ],
+    "MercadoPagoPreferenceId": null,
+    "MercadoPagoPaymentId": null,
+    "MercadoPagoInStoreOrderId": null
+  },
+  {
+    "Id": "c911e37c7d2040e08d2b932ebf571a8c",
+    "Title": "Orden c911e37c7d2040e08d2b932ebf571a8c",
+    "Total": 6400,
+    "CurrencyId": "ARS",
+    "Status": 1,
+    "CreatedAt": "2026-01-26T15:27:13.8494845-03:00",
+    "Items": [
+      {
+        "ProductId": "P002",
+        "Title": "Destornillador Plano",
+        "Description": null,
+        "ImageUrl": null,
+        "Quantity": 2,
+        "UnitPrice": 3200,
+        "CurrencyId": "ARS",
+        "SubTotal": 6400
+      }
+    ],
+    "MercadoPagoPreferenceId": null,
+    "MercadoPagoPaymentId": null,
+    "MercadoPagoInStoreOrderId": null
+  },
+  {
+    "Id": "e9e55fa8cf3b4958b3f6e2313dffbfd8",
+    "Title": "Orden e9e55fa8cf3b4958b3f6e2313dffbfd8",
+    "Total": 3200,
+    "CurrencyId": "ARS",
+    "Status": 1,
+    "CreatedAt": "2026-01-26T15:28:34.7501718-03:00",
+    "Items": [
+      {
+        "ProductId": "P002",
+        "Title": "Destornillador Plano",
+        "Description": null,
+        "ImageUrl": null,
+        "Quantity": 1,
+        "UnitPrice": 3200,
+        "CurrencyId": "ARS",
+        "SubTotal": 3200
+      }
+    ],
+    "MercadoPagoPreferenceId": null,
+    "MercadoPagoPaymentId": null,
+    "MercadoPagoInStoreOrderId": "91d08eb1-70b5-46a2-a9ed-38cc91cbcd90"
+  },
+  {
+    "Id": "fca1cc40a6074a76b31ecdc31a08fd2a",
+    "Title": "Orden fca1cc40a6074a76b31ecdc31a08fd2a",
+    "Total": 3200,
+    "CurrencyId": "ARS",
+    "Status": 1,
+    "CreatedAt": "2026-01-26T15:30:09.1122276-03:00",
+    "Items": [
+      {
+        "ProductId": "P002",
+        "Title": "Destornillador Plano",
+        "Description": null,
+        "ImageUrl": null,
+        "Quantity": 1,
+        "UnitPrice": 3200,
+        "CurrencyId": "ARS",
+        "SubTotal": 3200
+      }
+    ],
+    "MercadoPagoPreferenceId": null,
+    "MercadoPagoPaymentId": null,
+    "MercadoPagoInStoreOrderId": "6ea910e7-48d5-454f-aad3-4997197c1e28"
+  },
+  {
+    "Id": "f22a131fb7ec4046af722da8fcd3a2ea",
+    "Title": "Orden f22a131fb7ec4046af722da8fcd3a2ea",
+    "Total": 8500,
+    "CurrencyId": "ARS",
+    "Status": 1,
+    "CreatedAt": "2026-01-26T18:44:43.232536-03:00",
+    "Items": [
+      {
+        "ProductId": "P001",
+        "Title": "Martillo de Acero",
+        "Description": null,
+        "ImageUrl": null,
+        "Quantity": 1,
+        "UnitPrice": 8500,
+        "CurrencyId": "ARS",
+        "SubTotal": 8500
+      }
+    ],
+    "MercadoPagoPreferenceId": null,
+    "MercadoPagoPaymentId": null,
+    "MercadoPagoInStoreOrderId": "e48b2a5f-062f-4acc-8eea-ff91486f13e3"
+  },
+  {
+    "Id": "feefa42822774cc3ba43b9e203fcfa85",
+    "Title": "Orden feefa42822774cc3ba43b9e203fcfa85",
+    "Total": 3200,
+    "CurrencyId": "ARS",
+    "Status": 1,
+    "CreatedAt": "2026-01-26T18:45:54.0270896-03:00",
+    "Items": [
+      {
+        "ProductId": "P002",
+        "Title": "Destornillador Plano",
+        "Description": null,
+        "ImageUrl": null,
+        "Quantity": 1,
+        "UnitPrice": 3200,
+        "CurrencyId": "ARS",
+        "SubTotal": 3200
+      }
+    ],
+    "MercadoPagoPreferenceId": "3068452461-b342bd0b-d222-44ad-aa21-98797f45c459",
+    "MercadoPagoPaymentId": null,
+    "MercadoPagoInStoreOrderId": null
+  },
+  {
+    "Id": "9ec929bb302948d89fa552f7d8828b33",
+    "Title": "Orden 9ec929bb302948d89fa552f7d8828b33",
+    "Total": 3500,
+    "CurrencyId": "ARS",
+    "Status": 1,
+    "CreatedAt": "2026-01-26T18:46:43.5358596-03:00",
+    "Items": [
+      {
+        "ProductId": "P003",
+        "Title": "Destornillador Phillips",
+        "Description": null,
+        "ImageUrl": null,
+        "Quantity": 1,
+        "UnitPrice": 3500,
+        "CurrencyId": "ARS",
+        "SubTotal": 3500
+      }
+    ],
+    "MercadoPagoPreferenceId": null,
+    "MercadoPagoPaymentId": null,
+    "MercadoPagoInStoreOrderId": "cabb75bb-d891-4d41-8d9f-725447a84885"
+  },
+  {
+    "Id": "383be3ca39794302b58c2a4095c4d27a",
+    "Title": "Orden 383be3ca39794302b58c2a4095c4d27a",
+    "Total": 10500,
+    "CurrencyId": "ARS",
+    "Status": 1,
+    "CreatedAt": "2026-01-29T19:22:13.8481541-03:00",
+    "Items": [
+      {
+        "ProductId": "P003",
+        "Title": "Destornillador Phillips",
+        "Description": null,
+        "ImageUrl": null,
+        "Quantity": 3,
+        "UnitPrice": 3500,
+        "CurrencyId": "ARS",
+        "SubTotal": 10500
+      }
+    ],
+    "MercadoPagoPreferenceId": "3068452461-d988dfd9-db25-4b14-806a-87f868a44660",
+    "MercadoPagoPaymentId": null,
+    "MercadoPagoInStoreOrderId": null
+  },
+  {
+    "Id": "46b325e67dbf4ec483b0292882aabac7",
+    "Title": "Orden 46b325e67dbf4ec483b0292882aabac7",
+    "Total": 3500,
+    "CurrencyId": "ARS",
+    "Status": 1,
+    "CreatedAt": "2026-01-29T19:22:50.2336861-03:00",
+    "Items": [
+      {
+        "ProductId": "P003",
+        "Title": "Destornillador Phillips",
+        "Description": null,
+        "ImageUrl": null,
+        "Quantity": 1,
+        "UnitPrice": 3500,
+        "CurrencyId": "ARS",
+        "SubTotal": 3500
+      }
+    ],
+    "MercadoPagoPreferenceId": null,
+    "MercadoPagoPaymentId": null,
+    "MercadoPagoInStoreOrderId": "c7725867-419f-4bbc-9bd0-5d5f36276c5f"
+  },
+  {
+    "Id": "fdc3e9c028824b229ea2d901c76c2732",
+    "Title": "Orden fdc3e9c028824b229ea2d901c76c2732",
+    "Total": 3500,
+    "CurrencyId": "ARS",
+    "Status": 1,
+    "CreatedAt": "2026-01-29T19:26:54.9162465-03:00",
+    "Items": [
+      {
+        "ProductId": "P003",
+        "Title": "Destornillador Phillips",
+        "Description": null,
+        "ImageUrl": null,
+        "Quantity": 1,
+        "UnitPrice": 3500,
+        "CurrencyId": "ARS",
+        "SubTotal": 3500
+      }
+    ],
+    "MercadoPagoPreferenceId": "3068452461-efce2abb-fbc0-4f6d-ad55-131dc1a1b610",
+    "MercadoPagoPaymentId": null,
+    "MercadoPagoInStoreOrderId": null
+  },
+  {
+    "Id": "0c7a2a109e4d454dba32f680cd76ad30",
+    "Title": "Orden 0c7a2a109e4d454dba32f680cd76ad30",
+    "Total": 3200,
+    "CurrencyId": "ARS",
+    "Status": 1,
+    "CreatedAt": "2026-02-01T17:30:40.7363775-03:00",
+    "Items": [
+      {
+        "ProductId": "P002",
+        "Title": "Destornillador Plano",
+        "Description": null,
+        "ImageUrl": null,
+        "Quantity": 1,
+        "UnitPrice": 3200,
+        "CurrencyId": "ARS",
+        "SubTotal": 3200
+      }
+    ],
+    "MercadoPagoPreferenceId": "3068452461-9785230f-6493-4cc1-bdce-c19cc2af28e7",
+    "MercadoPagoPaymentId": null,
+    "MercadoPagoInStoreOrderId": null
+  },
+  {
+    "Id": "ffd3b6eefa2744e699018ffc4baee359",
+    "Title": "Orden ffd3b6eefa2744e699018ffc4baee359",
+    "Total": 3500,
+    "CurrencyId": "ARS",
+    "Status": 1,
+    "CreatedAt": "2026-02-01T17:31:07.7411345-03:00",
+    "Items": [
+      {
+        "ProductId": "P003",
+        "Title": "Destornillador Phillips",
+        "Description": null,
+        "ImageUrl": null,
+        "Quantity": 1,
+        "UnitPrice": 3500,
+        "CurrencyId": "ARS",
+        "SubTotal": 3500
+      }
+    ],
+    "MercadoPagoPreferenceId": null,
+    "MercadoPagoPaymentId": null,
+    "MercadoPagoInStoreOrderId": "f801ac1d-6b95-4702-bbe0-670ce8db368d"
+  },
+  {
+    "Id": "de68d79e78c6421890de0ab674a45f2b",
+    "Title": "Orden de68d79e78c6421890de0ab674a45f2b",
+    "Total": 9600,
+    "CurrencyId": "ARS",
+    "Status": 2,
+    "CreatedAt": "2026-02-04T22:19:04.6912715-03:00",
+    "Items": [
+      {
+        "ProductId": "P002",
+        "Title": "Destornillador Plano",
+        "Description": null,
+        "ImageUrl": null,
+        "Quantity": 3,
+        "UnitPrice": 3200,
+        "CurrencyId": "ARS",
+        "SubTotal": 9600
+      }
+    ],
+    "MercadoPagoPreferenceId": "3068452461-6839c674-9d64-46ad-8a37-02914ce9211f",
+    "MercadoPagoPaymentId": 144178378059,
+    "MercadoPagoInStoreOrderId": null
+  },
+  {
+    "Id": "1cd66c0d0288447c958ab73a734f1ac7",
+    "Title": "Orden 1cd66c0d0288447c958ab73a734f1ac7",
+    "Total": 3200,
+    "CurrencyId": "ARS",
+    "Status": 2,
+    "CreatedAt": "2026-02-04T22:24:50.1475248-03:00",
+    "Items": [
+      {
+        "ProductId": "P002",
+        "Title": "Destornillador Plano",
+        "Description": null,
+        "ImageUrl": null,
+        "Quantity": 1,
+        "UnitPrice": 3200,
+        "CurrencyId": "ARS",
+        "SubTotal": 3200
+      }
+    ],
+    "MercadoPagoPreferenceId": "3068452461-d1cab8da-8f60-40cf-a24a-50ffdeea2185",
+    "MercadoPagoPaymentId": 144862088954,
+    "MercadoPagoInStoreOrderId": null
+  },
+  {
+    "Id": "2f5a49f4bc144346aa8bb1bfd0cfb65a",
+    "Title": "Orden 2f5a49f4bc144346aa8bb1bfd0cfb65a",
+    "Total": 3500,
+    "CurrencyId": "ARS",
+    "Status": 2,
+    "CreatedAt": "2026-02-04T22:26:04.171737-03:00",
+    "Items": [
+      {
+        "ProductId": "P003",
+        "Title": "Destornillador Phillips",
+        "Description": null,
+        "ImageUrl": null,
+        "Quantity": 1,
+        "UnitPrice": 3500,
+        "CurrencyId": "ARS",
+        "SubTotal": 3500
+      }
+    ],
+    "MercadoPagoPreferenceId": "3068452461-b6ebf1ca-4d7d-4fe7-a543-7e351e15c800",
+    "MercadoPagoPaymentId": 144179165771,
+    "MercadoPagoInStoreOrderId": null
+  },
+  {
+    "Id": "da58efac66e5461fba2ecf150956d9dc",
+    "Title": "Orden da58efac66e5461fba2ecf150956d9dc",
+    "Total": 26500,
+    "CurrencyId": "ARS",
+    "Status": 2,
+    "CreatedAt": "2026-02-04T23:08:05.2530486-03:00",
+    "Items": [
+      {
+        "ProductId": "P006",
+        "Title": "Juego de Llaves Combinadas",
+        "Description": "Set de llaves m\u00E9tricas x12 piezas",
+        "ImageUrl": "https://placehold.co/300x300?text=Llaves\u002BCombinadas",
+        "Quantity": 1,
+        "UnitPrice": 26500,
+        "CurrencyId": "ARS",
+        "SubTotal": 26500
+      }
+    ],
+    "MercadoPagoPreferenceId": "3068452461-e7dabad8-fe98-49e2-b1f6-f252d8c23f74",
+    "MercadoPagoPaymentId": 144183006543,
+    "MercadoPagoInStoreOrderId": null
   }
 ]

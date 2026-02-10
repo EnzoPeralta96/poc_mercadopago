@@ -52,6 +52,8 @@ namespace poc_mercadopago.Application.Services.PaymentService
             {
                 ProductId = item.ProductId,
                 Title = productsSelected[index].Name,
+                Description = productsSelected[index].Description,
+                ImageUrl = productsSelected[index].ImageUrl,
                 Quantity = item.Quantity,
                 UnitPrice = productsSelected[index].Price,
                 CurrencyId = productsSelected[index].CurrencyId
@@ -118,7 +120,10 @@ namespace poc_mercadopago.Application.Services.PaymentService
                 OrderId = order.Id,
                 Items = order.Items.Select(i => new PreferenceItemDTO
                 {
+                    Id = i.ProductId,
                     Title = i.Title,
+                    Description = i.Description,
+                    PictureUrl = i.ImageUrl,
                     Quantity = i.Quantity,
                     UnitPrice = i.UnitPrice,
                     CurrencyId = i.CurrencyId

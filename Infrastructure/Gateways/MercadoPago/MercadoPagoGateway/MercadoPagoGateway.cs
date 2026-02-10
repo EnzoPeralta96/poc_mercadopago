@@ -17,6 +17,7 @@ namespace poc_mercadopago.Infrastructure.Gateways.MercadoPago.MercadoPagoGateway
             _logger = logger;
             _mercadoPagoOptions = options.Value;
             MercadoPagoConfig.AccessToken = _mercadoPagoOptions.AccessToken;
+            MercadoPagoConfig.IntegratorId = _mercadoPagoOptions.IntegratorId;
         }
 
         public async Task<string> CreatePreferenceAsync(CreatePreferenceRequest request, CancellationToken cancellationToken = default)
@@ -28,11 +29,23 @@ namespace poc_mercadopago.Infrastructure.Gateways.MercadoPago.MercadoPagoGateway
                     ExternalReference = request.OrderId,
                     Items = request.Items.Select(item => new PreferenceItemRequest
                     {
+                        Id = item.Id,
                         Title = item.Title,
+                        Description = item.Description,
+                        PictureUrl = item.PictureUrl,
                         Quantity = item.Quantity,
                         UnitPrice = item.UnitPrice,
                         CurrencyId = item.CurrencyId
                     }).ToList(),
+
+                    PaymentMethods = new PreferencePaymentMethodsRequest
+                    {
+                        Installments = 6,
+                        ExcludedPaymentMethods = new List<PreferencePaymentMethodRequest>
+                        {
+                            new PreferencePaymentMethodRequest { Id = "visa"}
+                        }
+                    },
 
                     BackUrls = new PreferenceBackUrlsRequest
                     {
@@ -78,7 +91,7 @@ namespace poc_mercadopago.Infrastructure.Gateways.MercadoPago.MercadoPagoGateway
                     CurrencyId = payment.CurrencyId
                 };
             }
-            catch (System.Exception ex)
+            catch (Exception ex)
             {
                 _logger.LogError(ex, "Error al obtener detalles del pago {PaymentId}", paymentId);
                 throw;

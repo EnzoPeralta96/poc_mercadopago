@@ -19,5 +19,8 @@ namespace poc_mercadopago.Infrastructure.Configuration
         [Url(ErrorMessage = "La BaseUrl debe ser una URL válida.")]
         public string BaseUrl { get; set; } 
 
+        [Required]
+        public string IntegratorId {get; set;}
+
     }
 }
