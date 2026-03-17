@@ -162,6 +162,7 @@ namespace poc_mercadopago.Infrastructure.Gateways.MercadoPago.MercadoPagoQRGatew
                     throw new HttpRequestException($"Error al crear orden QR en Mercado Pago. StatusCode: {response.StatusCode}");
                 }
 
+                
                 // Deserializar la respuesta de MP
                 // La respuesta contiene:
                 // - qr_data: String EMV para generar la imagen QR

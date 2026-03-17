@@ -56,19 +56,34 @@ namespace poc_mercadopago.Infrastructure.QRCode
                 }
 
                 // Crear instancia del generador de QR
+                /*
+                    Es el motor que calcula la matriz de datos (dónde van los puntos negros y blancos). 
+                */
                 using var qrGenerator = new QRCodeGenerator();
 
                 // Generar la matriz de datos del QR
+                /*
+                Su estructura: Es literalmente una colección de bools (Verdadero/Falso).
+                    Data.ModuleMatrix[0][0] = true (Aquí va un punto)./
+                    Data.ModuleMatrix[0][1] = false (Aquí va espacio vacío).
+                */
+                //ECC Level: Error Correcion Level
                 // ECC Level M = 15% de corrección de errores
                 // Es un balance entre:
                 // - L (7%): QR más pequeño pero menos tolerante a daños
                 // - M (15%): Balance recomendado para la mayoría de casos
                 // - Q (25%): Más tolerante pero QR más grande
                 // - H (30%): Máxima tolerancia pero QR muy grande
+
                 using var qrCodeData = qrGenerator.CreateQrCode(qrData, ECCLevel.M);
 
                 // Crear renderer para PNG (sin dependencia de System.Drawing)
                 // PngByteQRCode usa librerías nativas y es cross-platform
+                /*
+                    este componente escribe manualmente los bytes 
+                    que componen un archivo PNG (cabeceras, 
+                    chunks de datos, cierre).
+                */
                 using var qrCode = new PngByteQRCode(qrCodeData);
 
                 // Generar los bytes de la imagen PNG

@@ -52,6 +52,8 @@ namespace poc_mercadopago.Application.Services.PaymentService
             {
                 ProductId = item.ProductId,
                 Title = productsSelected[index].Name,
+                Description = productsSelected[index].Description,
+                ImageUrl = productsSelected[index].ImageUrl,
                 Quantity = item.Quantity,
                 UnitPrice = productsSelected[index].Price,
                 CurrencyId = productsSelected[index].CurrencyId
@@ -118,7 +120,10 @@ namespace poc_mercadopago.Application.Services.PaymentService
                 OrderId = order.Id,
                 Items = order.Items.Select(i => new PreferenceItemDTO
                 {
+                    Id = i.ProductId,
                     Title = i.Title,
+                    Description = i.Description,
+                    PictureUrl = i.ImageUrl,
                     Quantity = i.Quantity,
                     UnitPrice = i.UnitPrice,
                     CurrencyId = i.CurrencyId
@@ -153,7 +158,7 @@ namespace poc_mercadopago.Application.Services.PaymentService
 
                 // URL del webhook - MP enviará notificaciones de tipo "merchant_order" aquí
                 // Debe ser HTTPS y accesible desde internet (usar ngrok en desarrollo)
-                NotificationUrl = $"{_mercadoPagoQrOptions.BaseUrl}/webhooks/mercadopago/qr",
+                NotificationUrl = $"{_mercadoPagoQrOptions.BaseUrl}/webhooks/mercadopago?appType=qr",
 
                 // El monto debe ser entero para pesos argentinos (sin decimales)
                 TotalAmount = (int)order.Total,
