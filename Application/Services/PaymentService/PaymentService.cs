@@ -158,7 +158,7 @@ namespace poc_mercadopago.Application.Services.PaymentService
 
                 // URL del webhook - MP enviará notificaciones de tipo "merchant_order" aquí
                 // Debe ser HTTPS y accesible desde internet (usar ngrok en desarrollo)
-                NotificationUrl = $"{_mercadoPagoQrOptions.BaseUrl}/webhooks/mercadopago/qr",
+                NotificationUrl = $"{_mercadoPagoQrOptions.BaseUrl}/webhooks/mercadopago?appType=qr",
 
                 // El monto debe ser entero para pesos argentinos (sin decimales)
                 TotalAmount = (int)order.Total,

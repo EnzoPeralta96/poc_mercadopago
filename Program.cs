@@ -7,8 +7,11 @@ using poc_mercadopago.Infrastructure.Gateways.MercadoPago.MercadoPagoQRGateway;
 using poc_mercadopago.Infrastructure.QRCode;
 using poc_mercadopago.Infrastructure.SignalR.Hub;
 using poc_mercadopago.Infrastructure.SignalR.NotificationService;
+using poc_mercadopago.Infrastructure.Webhooks.MercadoPago.Handlers;
+using poc_mercadopago.Infrastructure.Webhooks.MercadoPago.Services;
 using poc_mercadopago.Repository.OrderRepository;
 using poc_mercadopago.Repository.ProductRepository;
+using StackExchange.Redis;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -82,6 +85,19 @@ builder.Services.AddScoped<IMercadoPagoQRGateway, MercadoPagoQRGateway>();
 
 //Generador de QR
 builder.Services.AddSingleton<IQrCodeGenerator, QrCodeGenerator>();
+
+// Redis
+var redisConnectionString = builder.Configuration["Redis:ConnectionString"]!;
+builder.Services.AddSingleton<IConnectionMultiplexer>(
+    ConnectionMultiplexer.Connect(redisConnectionString));
+
+// Webhook services
+builder.Services.AddScoped<IWebhookSignatureValidator, WebhookSignatureValidator>();
+builder.Services.AddScoped<IWebhookIdempotencyService, RedisWebhookIdempotencyService>();
+
+// Webhook handlers
+builder.Services.AddScoped<IWebhookHandler, PaymentWebhookHandler>();
+builder.Services.AddScoped<IWebhookHandler, MerchantOrderWebhookHandler>();
 
 
 var app = builder.Build();

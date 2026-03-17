@@ -11,7 +11,7 @@
     "id": "P002",
     "name": "Destornillador Plano",
     "description": "Destornillador plano punta reforzada",
-    "price": 3200,
+    "price": 20,
     "currencyId": "ARS",
     "imageUrl": "https://placehold.co/300x300?text=Destornillador+Plano"
   },
