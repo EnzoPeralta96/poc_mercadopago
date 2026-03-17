@@ -1,3 +1,5 @@
+using System.Threading.RateLimiting;
+using Microsoft.AspNetCore.RateLimiting;
 using poc_mercadopago.Application.Services.PaymentService;
 using poc_mercadopago.Infrastructure.Cart.CartStore;
 using poc_mercadopago.Infrastructure.Configuration;
@@ -23,7 +25,7 @@ builder.Services.AddControllersWithViews()
         options.ViewLocationFormats.Add("/Presentation/Views/{1}/{0}.cshtml");
         options.ViewLocationFormats.Add("/Presentation/Views/Shared/{0}.cshtml");
     });
-    
+
 //ContexAccesor para usar en CartStore
 builder.Services.AddHttpContextAccessor();
 
@@ -99,6 +101,37 @@ builder.Services.AddScoped<IWebhookIdempotencyService, RedisWebhookIdempotencySe
 builder.Services.AddScoped<IWebhookHandler, PaymentWebhookHandler>();
 builder.Services.AddScoped<IWebhookHandler, MerchantOrderWebhookHandler>();
 
+builder.Services.AddRateLimiter(options =>
+{
+    // Política específica para webhooks de Mercado Pago.
+    // Ventana fija: máximo 100 requests por minuto por IP.
+    // Mercado Pago no debería enviar más que eso; si lo hace, algo raro ocurre.
+    options.AddFixedWindowLimiter("webhook-mp", limiterOptions =>
+    {
+        limiterOptions.PermitLimit = 100; // Permitir 100 solicitudes
+        limiterOptions.Window = TimeSpan.FromMinutes(1); // Por minuto
+        limiterOptions.QueueProcessingOrder = QueueProcessingOrder.OldestFirst; //FIFO
+        limiterOptions.QueueLimit = 0; // No permitir encolamiento
+        //Aunque no haya encolamiento, la api de Ratelimit obliga a seteralo - propiedad requerida
+    });
+
+    // Qué devolver cuando se supera el límite.
+    // Para webhooks devolvemos 429 Too Many Requests.
+    // MP va a reintentar después, que es exactamente lo que queremos.
+    options.OnRejected = async (context, cancellationToken) =>
+    {
+        context.HttpContext.Response.StatusCode = StatusCodes.Status429TooManyRequests;
+
+        var logger = context.HttpContext.RequestServices.GetRequiredService<ILogger<Program>>();
+
+        logger.LogWarning(
+           "Rate limit excedido para webhook. IP: {IP}",
+           context.HttpContext.Connection.RemoteIpAddress
+       );
+
+        await context.HttpContext.Response.WriteAsync("Too many requests", cancellationToken);
+    };
+});
 
 var app = builder.Build();
 
@@ -112,11 +145,10 @@ if (!app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseRouting();
+app.UseRateLimiter();
 app.UseSession();
 app.UseAuthorization();
-
 app.MapStaticAssets();
-
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}")

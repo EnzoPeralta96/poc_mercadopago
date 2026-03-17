@@ -2,6 +2,7 @@
 
 using System.Security.Cryptography;
 using System.Text;
+using poc_mercadopago.Helpers;
 using poc_mercadopago.Infrastructure.Webhooks.MercadoPago.DTOs;
 
 namespace poc_mercadopago.Infrastructure.Webhooks.MercadoPago.Services
@@ -50,7 +51,7 @@ namespace poc_mercadopago.Infrastructure.Webhooks.MercadoPago.Services
             {
                 _logger.LogWarning(
                     "Webhook rechazado: firma no coincide (DataId: {DataId})",
-                    data.DataId
+                    LogSanitizer.Sanitize(data.DataId)
                 );
             }
 
@@ -87,7 +88,7 @@ namespace poc_mercadopago.Infrastructure.Webhooks.MercadoPago.Services
 
             if (string.IsNullOrEmpty(secret))
             {
-                _logger.LogError("Webhook rechazado: appType desconocido o ausente ({AppType})", appType);
+                _logger.LogError("Webhook rechazado: appType desconocido o ausente ({AppType})", LogSanitizer.Sanitize(appType));
                 return false;
             }
 
@@ -97,7 +98,7 @@ namespace poc_mercadopago.Infrastructure.Webhooks.MercadoPago.Services
             {
                 _logger.LogWarning(
                     "Webhook rechazado: encabezado de firma inválido o ausente (DataId: {DataId})",
-                    dataId
+                    LogSanitizer.Sanitize(dataId)
                 );
                 return false;
             }

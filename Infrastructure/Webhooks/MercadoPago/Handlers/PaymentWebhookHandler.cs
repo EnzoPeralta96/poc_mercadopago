@@ -1,5 +1,6 @@
 using System.Diagnostics;
 using poc_mercadopago.Application.Services.PaymentService;
+using poc_mercadopago.Helpers;
 using poc_mercadopago.Infrastructure.Webhooks.MercadoPago.DTOs;
 
 namespace poc_mercadopago.Infrastructure.Webhooks.MercadoPago.Handlers
@@ -46,8 +47,8 @@ namespace poc_mercadopago.Infrastructure.Webhooks.MercadoPago.Handlers
                 _logger.LogInformation(
                     "Payment procesado. PaymentId: {PaymentId}, OrderId: {OrderId}, Status: {Status}",
                     paymentResult.PaymentId,
-                    paymentResult.OrderId,
-                    paymentResult.Status
+                    LogSanitizer.Sanitize(paymentResult.OrderId),
+                    LogSanitizer.Sanitize(paymentResult.Status)
                 );
 
                 /*

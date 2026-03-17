@@ -1,6 +1,7 @@
 using System.Diagnostics;
 using poc_mercadopago.Application.DTOs.StartQrDTO;
 using poc_mercadopago.Application.Services.PaymentService;
+using poc_mercadopago.Helpers;
 using poc_mercadopago.Infrastructure.SignalR.NotificationService;
 using poc_mercadopago.Infrastructure.Webhooks.MercadoPago.DTOs;
 
@@ -80,8 +81,8 @@ namespace poc_mercadopago.Infrastructure.Webhooks.MercadoPago.Handlers
             _logger.LogInformation(
                 "Pago QR procesado. PaymentId: {PaymentId}, OrderId: {OrderId}, Status: {Status}, SignalR: {SignalR}",
                 paymentResult.PaymentId,
-                paymentResult.OrderId,
-                paymentResult.Status,
+                LogSanitizer.Sanitize(paymentResult.OrderId),
+                LogSanitizer.Sanitize(paymentResult.Status),
                 signalRSent
             );
 
@@ -115,8 +116,8 @@ namespace poc_mercadopago.Infrastructure.Webhooks.MercadoPago.Handlers
 
             _logger.LogInformation(
                 "MerchantOrder procesado. OrderId: {OrderId}, Status: {Status}, SignalR: {SignalR}",
-                qrPaymentStatus.OrderId,
-                qrPaymentStatus.Status,
+                LogSanitizer.Sanitize(qrPaymentStatus.OrderId),
+                LogSanitizer.Sanitize(qrPaymentStatus.Status),
                 signalRSent
             );
 
@@ -134,12 +135,12 @@ namespace poc_mercadopago.Infrastructure.Webhooks.MercadoPago.Handlers
             try
             {
                 await _signalRService.NotifyPaymentCompletdedAsync(orderId, status, paymentId);
-                _logger.LogInformation("SignalR enviado para orden {OrderId}", orderId);
+                _logger.LogInformation("SignalR enviado para orden {OrderId}", LogSanitizer.Sanitize(orderId));
                 return true;
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "Error al enviar notificación SignalR para orden {OrderId}", orderId);
+                _logger.LogError(ex, "Error al enviar notificación SignalR para orden {OrderId}", LogSanitizer.Sanitize(orderId));
                 return false;
             }
         }

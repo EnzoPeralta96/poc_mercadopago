@@ -1677,5 +1677,51 @@
     "MercadoPagoPreferenceId": null,
     "MercadoPagoPaymentId": 150682767326,
     "MercadoPagoInStoreOrderId": "331a8a95-7d77-43ba-aaf4-d515aa5e565a"
+  },
+  {
+    "Id": "a30935d4355f4125842e89850de27ba5",
+    "Title": "Orden a30935d4355f4125842e89850de27ba5",
+    "Total": 20,
+    "CurrencyId": "ARS",
+    "Status": 2,
+    "CreatedAt": "2026-03-17T01:17:10.4528461-03:00",
+    "Items": [
+      {
+        "ProductId": "P002",
+        "Title": "Destornillador Plano",
+        "Description": "Destornillador plano punta reforzada",
+        "ImageUrl": "https://placehold.co/300x300?text=Destornillador\u002BPlano",
+        "Quantity": 1,
+        "UnitPrice": 20,
+        "CurrencyId": "ARS",
+        "SubTotal": 20
+      }
+    ],
+    "MercadoPagoPreferenceId": "3068452461-4d5cd257-57ae-45b7-8c04-c1f6b6e676ae",
+    "MercadoPagoPaymentId": 150685030660,
+    "MercadoPagoInStoreOrderId": null
+  },
+  {
+    "Id": "6b2d419718c54508a998d6e3e3e11f8a",
+    "Title": "Orden 6b2d419718c54508a998d6e3e3e11f8a",
+    "Total": 20,
+    "CurrencyId": "ARS",
+    "Status": 2,
+    "CreatedAt": "2026-03-17T01:17:34.5182807-03:00",
+    "Items": [
+      {
+        "ProductId": "P002",
+        "Title": "Destornillador Plano",
+        "Description": "Destornillador plano punta reforzada",
+        "ImageUrl": "https://placehold.co/300x300?text=Destornillador\u002BPlano",
+        "Quantity": 1,
+        "UnitPrice": 20,
+        "CurrencyId": "ARS",
+        "SubTotal": 20
+      }
+    ],
+    "MercadoPagoPreferenceId": null,
+    "MercadoPagoPaymentId": 150685272346,
+    "MercadoPagoInStoreOrderId": "da659d14-7381-469b-a2c9-b18ba1c239cb"
   }
 ]

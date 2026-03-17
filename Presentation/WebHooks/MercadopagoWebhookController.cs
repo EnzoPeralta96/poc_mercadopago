@@ -1,4 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.RateLimiting;
+using poc_mercadopago.Helpers;
 using poc_mercadopago.Infrastructure.Webhooks.MercadoPago.DTOs;
 using poc_mercadopago.Infrastructure.Webhooks.MercadoPago.Handlers;
 using poc_mercadopago.Infrastructure.Webhooks.MercadoPago.Services;
@@ -44,6 +46,7 @@ namespace poc_mercadopago.Presentation.WebHooks
         /// Endpoint único para todas las notificaciones de Mercado Pago.
         /// </summary>
         [HttpPost]
+        [EnableRateLimiting("webhook-mp")]
         public async Task<IActionResult> Receive(
             [FromQuery] string? type,
             [FromQuery] string? topic,
@@ -56,10 +59,10 @@ namespace poc_mercadopago.Presentation.WebHooks
 
             _logger.LogInformation(
                 "Webhook recibido. Type: {Type}, AppType: {AppType}, ResourceId: {ResourceId}, NotificationId: {NotificationId}",
-                notification.RawType,
-                notification.AppType,
+                LogSanitizer.Sanitize(notification.RawType),
+                LogSanitizer.Sanitize(notification.AppType),
                 notification.ResourceId,
-                notification.NotificationId
+                LogSanitizer.Sanitize(notification.NotificationId)
             );
 
             // 2. Validar firma
@@ -67,7 +70,7 @@ namespace poc_mercadopago.Presentation.WebHooks
             {
                 _logger.LogWarning(
                     "Webhook rechazado por firma inválida. NotificationId: {NotificationId}",
-                    notification.NotificationId
+                    LogSanitizer.Sanitize(notification.NotificationId)
                 );
                 return Ok();
             }
@@ -77,7 +80,7 @@ namespace poc_mercadopago.Presentation.WebHooks
             {
                 _logger.LogInformation(
                     "Webhook duplicado ignorado. NotificationId: {NotificationId}",
-                    notification.NotificationId
+                    LogSanitizer.Sanitize(notification.NotificationId)
                 );
                 return Ok();
             }
@@ -89,8 +92,8 @@ namespace poc_mercadopago.Presentation.WebHooks
             {
                 _logger.LogDebug(
                     "No hay handler para AppType={AppType}, Type={Type}. Ignorando.",
-                    notification.AppType,
-                    notification.RawType
+                    LogSanitizer.Sanitize(notification.AppType),
+                    LogSanitizer.Sanitize(notification.RawType)
                 );
                 return Ok();
             }
@@ -100,7 +103,7 @@ namespace poc_mercadopago.Presentation.WebHooks
 
             _logger.LogInformation(
                 "Webhook procesado. NotificationId: {NotificationId}, Success: {Success}, Status: {Status}",
-                result.NotificationId,
+                LogSanitizer.Sanitize(result.NotificationId),
                 result.Success,
                 result.Status
             );
